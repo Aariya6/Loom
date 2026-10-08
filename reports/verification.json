@@ -1,0 +1,14 @@
+{
+  "project": "loom",
+  "release": "10.0.0",
+  "python_compile": true,
+  "pytest": true,
+  "html": true,
+  "javascript_syntax": true,
+  "progress_matrix": "10x20",
+  "runtime_http_smoke": true,
+  "documentation": true,
+  "tutorial_pdf": true,
+  "screenshots": true,
+  "browser_chromium_smoke": "not_claimed_sandbox_policy"
+}

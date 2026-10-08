@@ -1,0 +1,3890 @@
+{
+ "legend": "Genre templates for the studio's song generator. 'prog' entries are scale degrees (0 = tonic) with an optional chord quality and a length in beats. Styles are implemented in frontend/assets/studio-gen.js. 'structure' lists sections with which roles play in each.",
+ "structures": {
+  "standard": [
+   {
+    "name": "Intro",
+    "bars": 4,
+    "play": {
+     "drums": "lite",
+     "bass": 0,
+     "mids": 1,
+     "vox": 0,
+     "extra": 0
+    }
+   },
+   {
+    "name": "Verse",
+    "bars": 4,
+    "play": {
+     "drums": 1,
+     "bass": 1,
+     "mids": 1,
+     "vox": 0,
+     "extra": 0
+    }
+   },
+   {
+    "name": "Chorus",
+    "bars": 4,
+    "play": {
+     "drums": 1,
+     "bass": 1,
+     "mids": 1,
+     "vox": 1,
+     "extra": 1
+    }
+   },
+   {
+    "name": "Outro",
+    "bars": 4,
+    "play": {
+     "drums": "lite",
+     "bass": 1,
+     "mids": 1,
+     "vox": 1,
+     "extra": 0
+    }
+   }
+  ],
+  "club": [
+   {
+    "name": "Intro",
+    "bars": 4,
+    "play": {
+     "drums": 1,
+     "bass": 0,
+     "mids": 0,
+     "vox": 0,
+     "extra": 0
+    }
+   },
+   {
+    "name": "Build",
+    "bars": 4,
+    "play": {
+     "drums": 1,
+     "bass": 1,
+     "mids": 1,
+     "vox": 0,
+     "extra": 0
+    }
+   },
+   {
+    "name": "Drop",
+    "bars": 4,
+    "play": {
+     "drums": 1,
+     "bass": 1,
+     "mids": 1,
+     "vox": 1,
+     "extra": 1
+    }
+   },
+   {
+    "name": "Outro",
+    "bars": 4,
+    "play": {
+     "drums": 1,
+     "bass": 1,
+     "mids": 0,
+     "vox": 0,
+     "extra": 0
+    }
+   }
+  ],
+  "ambient": [
+   {
+    "name": "Open",
+    "bars": 4,
+    "play": {
+     "drums": 0,
+     "bass": 0,
+     "mids": 1,
+     "vox": 0,
+     "extra": 0
+    }
+   },
+   {
+    "name": "Layer",
+    "bars": 4,
+    "play": {
+     "drums": 0,
+     "bass": 1,
+     "mids": 1,
+     "vox": 1,
+     "extra": 0
+    }
+   },
+   {
+    "name": "Swell",
+    "bars": 4,
+    "play": {
+     "drums": "lite",
+     "bass": 1,
+     "mids": 1,
+     "vox": 1,
+     "extra": 1
+    }
+   },
+   {
+    "name": "Fade",
+    "bars": 4,
+    "play": {
+     "drums": 0,
+     "bass": 0,
+     "mids": 1,
+     "vox": 1,
+     "extra": 0
+    }
+   }
+  ],
+  "poem": [
+   {
+    "name": "Intro",
+    "bars": 2,
+    "play": {
+     "drums": 0,
+     "bass": 0,
+     "mids": 1,
+     "vox": 0,
+     "extra": 0
+    }
+   },
+   {
+    "name": "Stanza 1",
+    "bars": 6,
+    "play": {
+     "drums": "lite",
+     "bass": 1,
+     "mids": 1,
+     "vox": 0,
+     "extra": 0
+    }
+   },
+   {
+    "name": "Stanza 2",
+    "bars": 6,
+    "play": {
+     "drums": "lite",
+     "bass": 1,
+     "mids": 1,
+     "vox": 0,
+     "extra": 1
+    }
+   },
+   {
+    "name": "Outro",
+    "bars": 2,
+    "play": {
+     "drums": 0,
+     "bass": 0,
+     "mids": 1,
+     "vox": 0,
+     "extra": 1
+    }
+   }
+  ]
+ },
+ "genres": [
+  {
+   "id": "lofi",
+   "name": "Lo-fi Hip Hop",
+   "family": "Hip hop",
+   "blurb": "Dusty drums, jazzy 7th chords, tape-warm keys.",
+   "tempo": 78,
+   "swing": 0.18,
+   "root": 9,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "lofi",
+   "kit": "Lo-Fi Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 2,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "root"
+   },
+   "mids": {
+    "instrument": "Soft Keys",
+    "style": "sparse"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Music Box",
+    "instrument": "Music Box",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": "Vinyl Crackle",
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "boombap",
+   "name": "Boom Bap",
+   "family": "Hip hop",
+   "blurb": "Head-nod 90s drums, piano loop, chopped vocal.",
+   "tempo": 90,
+   "swing": 0.12,
+   "root": 5,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "boom-bap",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "rootfifth"
+   },
+   "mids": {
+    "instrument": "Grand Piano",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Vox Chop",
+    "style": "chops"
+   },
+   "extra": null,
+   "fx": {
+    "texture": "Vinyl Crackle",
+    "riser": "Reverse Cymbal",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "trap",
+   "name": "Trap",
+   "family": "Hip hop",
+   "blurb": "Rolling hats, booming 808, dark pads.",
+   "tempo": 140,
+   "swing": 0,
+   "root": 1,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "trap",
+   "kit": "Trap Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "bass808"
+   },
+   "mids": {
+    "instrument": "Warm Pad",
+    "style": "pad"
+   },
+   "vox": {
+    "instrument": "Vox Chop",
+    "style": "chops"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Bell Lead",
+    "instrument": "Vibraphone",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Sub Drop"
+   }
+  },
+  {
+   "id": "drill",
+   "name": "Drill",
+   "family": "Hip hop",
+   "blurb": "Sliding 808s, stuttering hats, cold strings.",
+   "tempo": 142,
+   "swing": 0,
+   "root": 7,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "drill",
+   "kit": "Trap Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "bass808"
+   },
+   "mids": {
+    "instrument": "Strings",
+    "style": "pad"
+   },
+   "vox": {
+    "instrument": "Whisper",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Pluck",
+    "instrument": "Pluck Synth",
+    "style": "arp8"
+   },
+   "fx": {
+    "texture": "Wind",
+    "riser": "Riser",
+    "impact": "Sub Drop"
+   }
+  },
+  {
+   "id": "house",
+   "name": "House",
+   "family": "House / Dance",
+   "blurb": "Four-on-the-floor, offbeat bass, organ stabs.",
+   "tempo": 124,
+   "swing": 0.05,
+   "root": 7,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "four-floor",
+   "kit": "House Kit",
+   "structure": "club",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 2,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Synth Bass",
+    "style": "offbeat"
+   },
+   "mids": {
+    "instrument": "Organ",
+    "style": "stabs"
+   },
+   "vox": {
+    "instrument": "Vox Chop",
+    "style": "chops"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Pluck",
+    "instrument": "Pluck Synth",
+    "style": "arp16"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "techno",
+   "name": "Techno",
+   "family": "House / Dance",
+   "blurb": "Driving kick, rolling bass, hypnotic stabs.",
+   "tempo": 130,
+   "swing": 0,
+   "root": 9,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "techno",
+   "kit": "House Kit",
+   "structure": "club",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 16
+    }
+   ],
+   "bass": {
+    "instrument": "Acid 303",
+    "style": "arp8"
+   },
+   "mids": {
+    "instrument": "Super Saw",
+    "style": "stabs"
+   },
+   "vox": {
+    "instrument": "Whisper",
+    "style": "pad_ooh"
+   },
+   "extra": null,
+   "fx": {
+    "texture": "Wind",
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "disco",
+   "name": "Disco",
+   "family": "House / Dance",
+   "blurb": "Octave bass, strings and a bright groove.",
+   "tempo": 118,
+   "swing": 0,
+   "root": 2,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "disco",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "octave"
+   },
+   "mids": {
+    "instrument": "Strings",
+    "style": "block"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Clav",
+    "instrument": "Clav",
+    "style": "skank"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "garage",
+   "name": "UK Garage",
+   "family": "House / Dance",
+   "blurb": "Skippy 2-step drums, deep sub, vocal chops.",
+   "tempo": 132,
+   "swing": 0.1,
+   "root": 4,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "uk-garage",
+   "kit": "House Kit",
+   "structure": "club",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "syncopated"
+   },
+   "mids": {
+    "instrument": "Soft Keys",
+    "style": "stabs"
+   },
+   "vox": {
+    "instrument": "Vox Chop",
+    "style": "chops"
+   },
+   "extra": null,
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "synthwave",
+   "name": "Synthwave",
+   "family": "Groove",
+   "blurb": "80s drive: arp bass, gated pads, big lead.",
+   "tempo": 100,
+   "swing": 0,
+   "root": 6,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "synthwave",
+   "kit": "Electronic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 2,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Synth Bass",
+    "style": "arp8"
+   },
+   "mids": {
+    "instrument": "Warm Pad",
+    "style": "pad"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Lead",
+    "instrument": "Saw Lead",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "pop",
+   "name": "Pop",
+   "family": "Groove",
+   "blurb": "Clean four-chord loop, piano, a catchy hook.",
+   "tempo": 108,
+   "swing": 0,
+   "root": 0,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "pop",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "rootfifth"
+   },
+   "mids": {
+    "instrument": "Grand Piano",
+    "style": "block"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "vox",
+    "name": "Hook",
+    "instrument": "Vox Lead",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "rock",
+   "name": "Rock",
+   "family": "Groove",
+   "blurb": "Driving 8ths, power-chord organ, a snarling lead.",
+   "tempo": 120,
+   "swing": 0,
+   "root": 4,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "rock",
+   "kit": "Rock Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "eighth"
+   },
+   "mids": {
+    "instrument": "Overdrive Guitar",
+    "style": "powers"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Lead",
+    "instrument": "Square Lead",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Reverse Cymbal",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "afrobeats",
+   "name": "Afrobeats",
+   "family": "Latin / World",
+   "blurb": "Syncopated sub, bright plucks, mallets and chops.",
+   "tempo": 104,
+   "swing": 0.06,
+   "root": 7,
+   "scale": "Dorian",
+   "harmony": "Dorian",
+   "beat": "afrobeats",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "min7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "syncopated"
+   },
+   "mids": {
+    "instrument": "Pluck Synth",
+    "style": "pluckriff"
+   },
+   "vox": {
+    "instrument": "Vox Chop",
+    "style": "chops"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Mallets",
+    "instrument": "Vibraphone",
+    "style": "arp8"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "reggaeton",
+   "name": "Reggaeton",
+   "family": "Latin / World",
+   "blurb": "Dembow rhythm, heavy 808, plucked stabs.",
+   "tempo": 94,
+   "swing": 0,
+   "root": 2,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "dembow",
+   "kit": "Trap Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "bass808"
+   },
+   "mids": {
+    "instrument": "Pluck Synth",
+    "style": "stabs"
+   },
+   "vox": {
+    "instrument": "Vox Chop",
+    "style": "chops"
+   },
+   "extra": null,
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Sub Drop"
+   }
+  },
+  {
+   "id": "dnb",
+   "name": "Drum & Bass",
+   "family": "Breaks",
+   "blurb": "Fast breaks, rolling Reese bass, wide pads.",
+   "tempo": 172,
+   "swing": 0,
+   "root": 5,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "dnb",
+   "kit": "Electronic Kit",
+   "structure": "club",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Reese Bass",
+    "style": "dnb"
+   },
+   "mids": {
+    "instrument": "Warm Pad",
+    "style": "pad"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": null,
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "funk",
+   "name": "Funk",
+   "family": "Groove",
+   "blurb": "Slap-style bass, clav comping, brass hits.",
+   "tempo": 108,
+   "swing": 0.08,
+   "root": 4,
+   "scale": "Dorian",
+   "harmony": "Dorian",
+   "beat": "funk",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "9",
+     "beats": 8
+    },
+    {
+     "d": 3,
+     "q": "9",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "9",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Slap Bass",
+    "style": "slap"
+   },
+   "mids": {
+    "instrument": "Clav",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Vox Chop",
+    "style": "chops"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Brass",
+    "instrument": "Brass Section",
+    "style": "stabs"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "jazz",
+   "name": "Jazz Swing",
+   "family": "Acoustic",
+   "blurb": "Walking bass, comping piano, vibraphone melody.",
+   "tempo": 124,
+   "swing": 0.32,
+   "root": 10,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "jazz-swing",
+   "kit": "Jazz Brush",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 1,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "walking"
+   },
+   "mids": {
+    "instrument": "Grand Piano",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Vibes",
+    "instrument": "Vibraphone",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "bossa",
+   "name": "Bossa Nova",
+   "family": "Latin / World",
+   "blurb": "Nylon guitar comping, soft clave, flute melody.",
+   "tempo": 118,
+   "swing": 0,
+   "root": 2,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "bossa",
+   "kit": "Jazz Brush",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 2,
+     "q": "maj7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "bossa"
+   },
+   "mids": {
+    "instrument": "Nylon Guitar",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Flute",
+    "instrument": "Flute",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "reggae",
+   "name": "Reggae",
+   "family": "Latin / World",
+   "blurb": "One-drop beat, offbeat organ skank, deep bass.",
+   "tempo": 76,
+   "swing": 0.1,
+   "root": 7,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "reggae",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "reggae"
+   },
+   "mids": {
+    "instrument": "Organ",
+    "style": "skank"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Guitar",
+    "instrument": "Muted Guitar",
+    "style": "skank"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "ambient",
+   "name": "Ambient",
+   "family": "Cinematic",
+   "blurb": "Slow evolving pads, wind and sparse bells. No drums.",
+   "tempo": 68,
+   "swing": 0,
+   "root": 2,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": null,
+   "kit": "Acoustic Kit",
+   "structure": "ambient",
+   "prog": [
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 8
+    },
+    {
+     "d": 4,
+     "q": "sus2",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 8
+    },
+    {
+     "d": 3,
+     "q": "maj7",
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "sub"
+   },
+   "mids": {
+    "instrument": "Warm Pad",
+    "style": "pad"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Bells",
+    "instrument": "Music Box",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": "Wind",
+    "riser": "Riser",
+    "impact": "Sub Drop"
+   }
+  },
+  {
+   "id": "cinematic",
+   "name": "Cinematic",
+   "family": "Cinematic",
+   "blurb": "Strings, harp arpeggios, big impacts and risers.",
+   "tempo": 82,
+   "swing": 0,
+   "root": 0,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "ballad",
+   "kit": "Acoustic Kit",
+   "structure": "ambient",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 8
+    },
+    {
+     "d": 2,
+     "q": "maj",
+     "beats": 8
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "sub"
+   },
+   "mids": {
+    "instrument": "Strings",
+    "style": "pad"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Harp",
+    "instrument": "Harp",
+    "style": "arp8"
+   },
+   "fx": {
+    "texture": "Wind",
+    "riser": "Reverse Cymbal",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "folk",
+   "name": "Acoustic Folk",
+   "family": "Guitar & roots",
+   "blurb": "Strummed steel-string, upright bass, a fiddle tune.",
+   "tempo": 96,
+   "swing": 0.05,
+   "root": 7,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "folk",
+   "kit": "Jazz Brush",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "country"
+   },
+   "mids": {
+    "instrument": "Acoustic Guitar",
+    "style": "strum_folk"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Fiddle",
+    "instrument": "Violin",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "country",
+   "name": "Country",
+   "family": "Guitar & roots",
+   "blurb": "Boom-chick guitar, banjo rolls, train-beat drums.",
+   "tempo": 112,
+   "swing": 0.06,
+   "root": 2,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "country-train",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "country"
+   },
+   "mids": {
+    "instrument": "Acoustic Guitar",
+    "style": "country_bc"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Banjo",
+    "instrument": "Banjo",
+    "style": "pluckriff"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "blues",
+   "name": "Blues Shuffle",
+   "family": "Guitar & roots",
+   "blurb": "Dominant-7th shuffle with a clean comp and an overdriven riff.",
+   "tempo": 96,
+   "swing": 0.33,
+   "root": 4,
+   "scale": "Blues",
+   "harmony": "Mixolydian",
+   "beat": "shuffle-blues",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "7",
+     "beats": 8
+    },
+    {
+     "d": 3,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "shuffle"
+   },
+   "mids": {
+    "instrument": "Electric Clean",
+    "style": "blues_stab"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Lead guitar",
+    "instrument": "Overdrive Guitar",
+    "style": "riff"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "poppunk",
+   "name": "Pop Punk",
+   "family": "Guitar & roots",
+   "blurb": "Fast eighth-note power chords, driving bass, big chorus.",
+   "tempo": 172,
+   "swing": 0,
+   "root": 7,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "pop-punk",
+   "kit": "Rock Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "pump"
+   },
+   "mids": {
+    "instrument": "Overdrive Guitar",
+    "style": "chug"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Lead",
+    "instrument": "Saw Lead",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Reverse Cymbal",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "metal",
+   "name": "Metal",
+   "family": "Guitar & roots",
+   "blurb": "Palm-muted chugs, double kick, a harmonised riff.",
+   "tempo": 150,
+   "swing": 0,
+   "root": 4,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "metal",
+   "kit": "Rock Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "eighth"
+   },
+   "mids": {
+    "instrument": "Distortion Guitar",
+    "style": "chug"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Riff",
+    "instrument": "Distortion Guitar",
+    "style": "riff"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Reverse Cymbal",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "indie",
+   "name": "Indie Rock",
+   "family": "Guitar & roots",
+   "blurb": "Picked clean guitar, shimmering riff, steady drive.",
+   "tempo": 124,
+   "swing": 0,
+   "root": 2,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "indie",
+   "kit": "Rock Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "rootfifth"
+   },
+   "mids": {
+    "instrument": "Electric Clean",
+    "style": "arp8"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Riff",
+    "instrument": "Overdrive Guitar",
+    "style": "riff"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "neosoul",
+   "name": "Neo-Soul",
+   "family": "Hip hop",
+   "blurb": "Rhodes 9th chords, loose swung drums, a vibes line.",
+   "tempo": 88,
+   "swing": 0.2,
+   "root": 6,
+   "scale": "Dorian",
+   "harmony": "Dorian",
+   "beat": "neo-soul",
+   "kit": "Lo-Fi Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min9",
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": "9",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "min9",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "min7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "syncopated"
+   },
+   "mids": {
+    "instrument": "Rhodes",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Vibes",
+    "instrument": "Vibraphone",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "amapiano",
+   "name": "Amapiano",
+   "family": "House / Dance",
+   "blurb": "Log-drum style bass, kalimba plucks, airy flute.",
+   "tempo": 112,
+   "swing": 0.04,
+   "root": 9,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "amapiano",
+   "kit": "House Kit",
+   "structure": "club",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min7",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "amapiano"
+   },
+   "mids": {
+    "instrument": "Kalimba",
+    "style": "pluckriff"
+   },
+   "vox": {
+    "instrument": "Vox Chop",
+    "style": "chops"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Flute",
+    "instrument": "Flute",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "dancehall",
+   "name": "Dancehall",
+   "family": "Latin / World",
+   "blurb": "Skippy riddim, 808 bass, synth and brass stabs.",
+   "tempo": 100,
+   "swing": 0,
+   "root": 0,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "dancehall",
+   "kit": "Electronic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "bass808"
+   },
+   "mids": {
+    "instrument": "Pluck Synth",
+    "style": "stabs"
+   },
+   "vox": {
+    "instrument": "Vox Chop",
+    "style": "chops"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Brass",
+    "instrument": "Brass Section",
+    "style": "stabs"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "trance",
+   "name": "Trance",
+   "family": "House / Dance",
+   "blurb": "Rolling offbeat bass, super-saw arps and a long lead.",
+   "tempo": 138,
+   "swing": 0,
+   "root": 9,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "trance",
+   "kit": "House Kit",
+   "structure": "club",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 2,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Synth Bass",
+    "style": "offbeat"
+   },
+   "mids": {
+    "instrument": "Super Saw",
+    "style": "arp16"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Lead",
+    "instrument": "Super Saw",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "dubstep",
+   "name": "Dubstep",
+   "family": "Breaks",
+   "blurb": "Half-time drums, wobble bass and cinematic pads.",
+   "tempo": 140,
+   "swing": 0,
+   "root": 6,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "dubstep",
+   "kit": "Electronic Kit",
+   "structure": "club",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Wobble Bass",
+    "style": "bass808"
+   },
+   "mids": {
+    "instrument": "Warm Pad",
+    "style": "pad"
+   },
+   "vox": {
+    "instrument": "Whisper",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Stabs",
+    "instrument": "Super Saw",
+    "style": "stabs"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Sub Drop"
+   }
+  },
+  {
+   "id": "samba",
+   "name": "Samba",
+   "family": "Latin / World",
+   "blurb": "Nylon guitar comping, cavaquinho 16ths, surdo and shakers.",
+   "tempo": 100,
+   "swing": 0,
+   "root": 2,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "samba",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 1,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "syncopated"
+   },
+   "mids": {
+    "instrument": "Nylon Guitar",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Cavaquinho",
+    "instrument": "Ukulele",
+    "style": "arp16"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "cumbia",
+   "name": "Cumbia",
+   "family": "Latin / World",
+   "blurb": "Bouncing bass, accordion chords, gaita-style flute.",
+   "tempo": 92,
+   "swing": 0,
+   "root": 9,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "cumbia",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": "min",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "cumbia"
+   },
+   "mids": {
+    "instrument": "Accordion",
+    "style": "skank"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Gaita",
+    "instrument": "Flute",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "motown",
+   "name": "Motown Soul",
+   "family": "Groove",
+   "blurb": "Tambourine on every eighth, piano, horn stabs, walking bass.",
+   "tempo": 118,
+   "swing": 0,
+   "root": 0,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "motown",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "walking"
+   },
+   "mids": {
+    "instrument": "Grand Piano",
+    "style": "block"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Horns",
+    "instrument": "Brass Section",
+    "style": "stabs"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "electro",
+   "name": "Electro",
+   "family": "House / Dance",
+   "blurb": "Acid line, super-saw stabs, cowbell groove.",
+   "tempo": 124,
+   "swing": 0,
+   "root": 0,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "electro",
+   "kit": "Electronic Kit",
+   "structure": "club",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Acid 303",
+    "style": "arp8"
+   },
+   "mids": {
+    "instrument": "Super Saw",
+    "style": "stabs"
+   },
+   "vox": {
+    "instrument": "Vox Chop",
+    "style": "chops"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Lead",
+    "instrument": "Square Lead",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "latinpop",
+   "name": "Latin Pop",
+   "family": "Latin / World",
+   "blurb": "Strummed nylon, sub bass, a trumpet hook.",
+   "tempo": 98,
+   "swing": 0,
+   "root": 9,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "latin-pop",
+   "kit": "Electronic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 2,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "syncopated"
+   },
+   "mids": {
+    "instrument": "Nylon Guitar",
+    "style": "strum_pop"
+   },
+   "vox": {
+    "instrument": "Vox Chop",
+    "style": "chops"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Trumpet",
+    "instrument": "Trumpet",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "country-ballad",
+   "name": "Country Ballad",
+   "family": "Country",
+   "blurb": "Slow strummed acoustic, upright bass, a weeping pedal-steel line.",
+   "tempo": 72,
+   "swing": 0.03,
+   "root": 7,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "folk",
+   "kit": "Jazz Brush",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "country"
+   },
+   "mids": {
+    "instrument": "Acoustic Guitar",
+    "style": "strum_ballad"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Pedal steel",
+    "instrument": "Pedal Steel",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "honky-tonk",
+   "name": "Honky-Tonk",
+   "family": "Country",
+   "blurb": "Bar-room piano boom-chick, fiddle runs, a two-step shuffle.",
+   "tempo": 128,
+   "swing": 0.06,
+   "root": 0,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "honky-tonk",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "country"
+   },
+   "mids": {
+    "instrument": "Grand Piano",
+    "style": "country_bc"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Fiddle",
+    "instrument": "Violin",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "bluegrass",
+   "name": "Bluegrass",
+   "family": "Country",
+   "blurb": "Fast flat-picked guitar, banjo rolls, standup bass. No drums.",
+   "tempo": 140,
+   "swing": 0.04,
+   "root": 7,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": null,
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "country"
+   },
+   "mids": {
+    "instrument": "Acoustic Guitar",
+    "style": "country_bc"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Banjo",
+    "instrument": "Banjo",
+    "style": "pluckriff"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "outlaw-country",
+   "name": "Outlaw Country",
+   "family": "Country",
+   "blurb": "Gritty clean guitar, steady two-beat, a lonesome steel.",
+   "tempo": 96,
+   "swing": 0.05,
+   "root": 4,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "honky-tonk",
+   "kit": "Rock Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "country"
+   },
+   "mids": {
+    "instrument": "Electric Clean",
+    "style": "country_bc"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Steel",
+    "instrument": "Pedal Steel",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "country-pop",
+   "name": "Country Pop",
+   "family": "Country",
+   "blurb": "Bright acoustic strum, a pop backbeat, a fiddle hook.",
+   "tempo": 104,
+   "swing": 0,
+   "root": 2,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "pop",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "rootfifth"
+   },
+   "mids": {
+    "instrument": "Acoustic Guitar",
+    "style": "strum_pop"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Fiddle",
+    "instrument": "Violin",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   }
+  },
+  {
+   "id": "western-ballad",
+   "name": "Western Ballad",
+   "family": "Country",
+   "blurb": "Dusty fingerpicked nylon, haunting steel, wide open space.",
+   "tempo": 66,
+   "swing": 0,
+   "root": 9,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": "ballad",
+   "kit": "Jazz Brush",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 4
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "sub"
+   },
+   "mids": {
+    "instrument": "Nylon Guitar",
+    "style": "fingerpick"
+   },
+   "vox": {
+    "instrument": "Whisper",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Steel",
+    "instrument": "Pedal Steel",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   },
+   "tape": 0.25
+  },
+  {
+   "id": "lullaby",
+   "name": "Lullaby",
+   "family": "Acoustic & soothing",
+   "blurb": "Music-box arpeggios, humming and a gentle harp. Slow and warm.",
+   "tempo": 60,
+   "swing": 0,
+   "root": 0,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": null,
+   "kit": "Jazz Brush",
+   "structure": "ambient",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "sub"
+   },
+   "mids": {
+    "instrument": "Music Box",
+    "style": "fingerpick"
+   },
+   "vox": {
+    "instrument": "Humming",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Harp",
+    "instrument": "Harp",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "soothing-acoustic",
+   "name": "Soothing Acoustic",
+   "family": "Acoustic & soothing",
+   "blurb": "Fingerpicked nylon, a soft flute and a barely-there pulse.",
+   "tempo": 70,
+   "swing": 0,
+   "root": 2,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "soft-pulse",
+   "kit": "Jazz Brush",
+   "structure": "ambient",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "root"
+   },
+   "mids": {
+    "instrument": "Nylon Guitar",
+    "style": "fingerpick"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Flute",
+    "instrument": "Flute",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "morning-coffee",
+   "name": "Morning Coffee",
+   "family": "Acoustic & soothing",
+   "blurb": "Warm nylon comping, brushes and a vibraphone line. Easy.",
+   "tempo": 84,
+   "swing": 0.1,
+   "root": 5,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "brush-ballad",
+   "kit": "Jazz Brush",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 1,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "bossa"
+   },
+   "mids": {
+    "instrument": "Nylon Guitar",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Humming",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Vibes",
+    "instrument": "Vibraphone",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "sunday-folk",
+   "name": "Sunday Folk",
+   "family": "Acoustic & soothing",
+   "blurb": "Unhurried folk strum with a fiddle and a warm bass.",
+   "tempo": 88,
+   "swing": 0.04,
+   "root": 9,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "folk",
+   "kit": "Jazz Brush",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "country"
+   },
+   "mids": {
+    "instrument": "Acoustic Guitar",
+    "style": "strum_folk"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Fiddle",
+    "instrument": "Violin",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "retro-70s-soul",
+   "name": "Retro 70s Soul",
+   "family": "Retro",
+   "blurb": "Rhodes comping, a funky bass, tambourine and strings.",
+   "tempo": 98,
+   "swing": 0.08,
+   "root": 9,
+   "scale": "Dorian",
+   "harmony": "Dorian",
+   "beat": "soul-70s",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": "9",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "min7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "syncopated"
+   },
+   "mids": {
+    "instrument": "Rhodes",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Strings",
+    "instrument": "Strings",
+    "style": "pad"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   },
+   "tape": 0.3
+  },
+  {
+   "id": "retro-80s-pop",
+   "name": "Retro 80s Pop",
+   "family": "Retro",
+   "blurb": "Gated drums, analog poly pads, arpeggiated bass, a big lead.",
+   "tempo": 112,
+   "swing": 0,
+   "root": 0,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "pop",
+   "kit": "Electronic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Synth Bass",
+    "style": "arp8"
+   },
+   "mids": {
+    "instrument": "Analog Poly",
+    "style": "block"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Lead",
+    "instrument": "Saw Lead",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": "Riser",
+    "impact": "Impact"
+   },
+   "tape": 0.2
+  },
+  {
+   "id": "doo-wop",
+   "name": "Doo-Wop",
+   "family": "Retro",
+   "blurb": "The 50s I-vi-IV-V, brushed drums, vocal oohs and a sax.",
+   "tempo": 76,
+   "swing": 0.2,
+   "root": 0,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "doo-wop",
+   "kit": "Jazz Brush",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "walking"
+   },
+   "mids": {
+    "instrument": "Grand Piano",
+    "style": "block"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Sax",
+    "instrument": "Sax",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   },
+   "tape": 0.35
+  },
+  {
+   "id": "rockabilly",
+   "name": "Rockabilly",
+   "family": "Retro",
+   "blurb": "Slapback guitar, slapped-style upright, a swinging backbeat.",
+   "tempo": 160,
+   "swing": 0.1,
+   "root": 4,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "rockabilly",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": null,
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "country"
+   },
+   "mids": {
+    "instrument": "Electric Clean",
+    "style": "country_bc"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Lead guitar",
+    "instrument": "Overdrive Guitar",
+    "style": "riff"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   },
+   "tape": 0.2
+  },
+  {
+   "id": "tape-dreams",
+   "name": "Tape Dreams",
+   "family": "Retro",
+   "blurb": "Wobbly tape keys, mellotron strings, vinyl crackle. Hazy.",
+   "tempo": 80,
+   "swing": 0.12,
+   "root": 5,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "lofi",
+   "kit": "Lo-Fi Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 2,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 1,
+     "q": "min7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "root"
+   },
+   "mids": {
+    "instrument": "Rhodes",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Humming",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Tape strings",
+    "instrument": "Mellotron",
+    "style": "pad"
+   },
+   "fx": {
+    "texture": "Vinyl Crackle",
+    "riser": null,
+    "impact": null
+   },
+   "tape": 0.6
+  },
+  {
+   "id": "retro-lounge",
+   "name": "Retro Lounge",
+   "family": "Retro",
+   "blurb": "Bossa-tinged vibes, flute, soft brushes. A 60s cocktail hour.",
+   "tempo": 100,
+   "swing": 0.05,
+   "root": 10,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "bossa",
+   "kit": "Jazz Brush",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 1,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "bossa"
+   },
+   "mids": {
+    "instrument": "Rhodes",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Flute",
+    "instrument": "Flute",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   },
+   "tape": 0.2
+  },
+  {
+   "id": "jazz-ballad",
+   "name": "Jazz Ballad",
+   "family": "Jazz",
+   "blurb": "Slow ii-V-I, brushes, walking bass, a late-night sax.",
+   "tempo": 62,
+   "swing": 0.2,
+   "root": 5,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "brush-ballad",
+   "kit": "Jazz Brush",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 1,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "walking"
+   },
+   "mids": {
+    "instrument": "Grand Piano",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Sax",
+    "instrument": "Sax",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "smooth-jazz",
+   "name": "Smooth Jazz",
+   "family": "Jazz",
+   "blurb": "Rhodes, a laid-back groove, a silky sax melody.",
+   "tempo": 92,
+   "swing": 0.08,
+   "root": 2,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "smooth-jazz",
+   "kit": "Acoustic Kit",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 1,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Electric Bass",
+    "style": "syncopated"
+   },
+   "mids": {
+    "instrument": "Rhodes",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Sax",
+    "instrument": "Sax",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "cool-jazz",
+   "name": "Cool Jazz",
+   "family": "Jazz",
+   "blurb": "Vibraphone and piano over a light swing. Understated.",
+   "tempo": 118,
+   "swing": 0.3,
+   "root": 3,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "jazz-swing",
+   "kit": "Jazz Brush",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 1,
+     "q": "min7",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 4
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "walking"
+   },
+   "mids": {
+    "instrument": "Grand Piano",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Choir Ooh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Vibes",
+    "instrument": "Vibraphone",
+    "style": "melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "big-band-swing",
+   "name": "Big-Band Swing",
+   "family": "Jazz",
+   "blurb": "Fast swing, walking bass, brass-section hits.",
+   "tempo": 150,
+   "swing": 0.33,
+   "root": 10,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "jazz-swing",
+   "kit": "Jazz Brush",
+   "structure": "standard",
+   "prog": [
+    {
+     "d": 0,
+     "q": "6",
+     "beats": 4
+    },
+    {
+     "d": 3,
+     "q": "7",
+     "beats": 4
+    },
+    {
+     "d": 0,
+     "q": "6",
+     "beats": 4
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 4
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "walking"
+   },
+   "mids": {
+    "instrument": "Grand Piano",
+    "style": "comp"
+   },
+   "vox": {
+    "instrument": "Choir Ahh",
+    "style": "pad_ooh"
+   },
+   "extra": {
+    "role": "mids",
+    "name": "Horns",
+    "instrument": "Brass Section",
+    "style": "stabs"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   }
+  },
+  {
+   "id": "poem-soft-acoustic",
+   "name": "Poem · Soft Acoustic",
+   "family": "Poetry & spoken word",
+   "blurb": "Fingerpicked nylon under your voice. Calm, warm, plenty of room.",
+   "tempo": 66,
+   "swing": 0,
+   "root": 2,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": null,
+   "kit": "Jazz Brush",
+   "structure": "poem",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "root"
+   },
+   "mids": {
+    "instrument": "Nylon Guitar",
+    "style": "fingerpick"
+   },
+   "vox": null,
+   "extra": {
+    "role": "mids",
+    "name": "Flute",
+    "instrument": "Flute",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   },
+   "poem": true
+  },
+  {
+   "id": "poem-piano",
+   "name": "Poem · Piano & Strings",
+   "family": "Poetry & spoken word",
+   "blurb": "Sparse piano chords and a slow string pad. Cinematic and tender.",
+   "tempo": 60,
+   "swing": 0,
+   "root": 0,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": null,
+   "kit": "Jazz Brush",
+   "structure": "poem",
+   "prog": [
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 8
+    },
+    {
+     "d": 3,
+     "q": "maj7",
+     "beats": 8
+    },
+    {
+     "d": 4,
+     "q": "sus4",
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "sub"
+   },
+   "mids": {
+    "instrument": "Grand Piano",
+    "style": "sparse"
+   },
+   "vox": null,
+   "extra": {
+    "role": "mids",
+    "name": "Strings",
+    "instrument": "Strings",
+    "style": "pad"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   },
+   "poem": true
+  },
+  {
+   "id": "poem-country",
+   "name": "Poem · Country Porch",
+   "family": "Poetry & spoken word",
+   "blurb": "Fingerpicked steel guitar and a distant pedal steel. Open-air.",
+   "tempo": 68,
+   "swing": 0,
+   "root": 7,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": null,
+   "kit": "Jazz Brush",
+   "structure": "poem",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 0,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "sub"
+   },
+   "mids": {
+    "instrument": "Acoustic Guitar",
+    "style": "fingerpick"
+   },
+   "vox": null,
+   "extra": {
+    "role": "mids",
+    "name": "Steel",
+    "instrument": "Pedal Steel",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   },
+   "tape": 0.15,
+   "poem": true
+  },
+  {
+   "id": "poem-retro",
+   "name": "Poem · Retro Tape",
+   "family": "Poetry & spoken word",
+   "blurb": "Wobbly Rhodes, mellotron and vinyl hiss, with a whisper of rhythm.",
+   "tempo": 72,
+   "swing": 0.1,
+   "root": 5,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "soft-pulse",
+   "kit": "Lo-Fi Kit",
+   "structure": "poem",
+   "prog": [
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 8
+    },
+    {
+     "d": 2,
+     "q": "min7",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 8
+    },
+    {
+     "d": 4,
+     "q": "7",
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "sub"
+   },
+   "mids": {
+    "instrument": "Rhodes",
+    "style": "sparse"
+   },
+   "vox": null,
+   "extra": {
+    "role": "mids",
+    "name": "Tape strings",
+    "instrument": "Mellotron",
+    "style": "pad"
+   },
+   "fx": {
+    "texture": "Vinyl Crackle",
+    "riser": null,
+    "impact": null
+   },
+   "tape": 0.5,
+   "poem": true
+  },
+  {
+   "id": "poem-jazz",
+   "name": "Poem · Late-Night Jazz",
+   "family": "Poetry & spoken word",
+   "blurb": "Brushes, an upright, soft 9th chords and a distant sax.",
+   "tempo": 58,
+   "swing": 0.2,
+   "root": 10,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "brush-ballad",
+   "kit": "Jazz Brush",
+   "structure": "poem",
+   "prog": [
+    {
+     "d": 1,
+     "q": "min9",
+     "beats": 8
+    },
+    {
+     "d": 4,
+     "q": "9",
+     "beats": 8
+    },
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "sub"
+   },
+   "mids": {
+    "instrument": "Grand Piano",
+    "style": "sparse"
+   },
+   "vox": null,
+   "extra": {
+    "role": "mids",
+    "name": "Sax",
+    "instrument": "Sax",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   },
+   "poem": true
+  },
+  {
+   "id": "poem-ambient",
+   "name": "Poem · Ambient Air",
+   "family": "Poetry & spoken word",
+   "blurb": "Warm pads, wind and the odd music-box note. Weightless.",
+   "tempo": 56,
+   "swing": 0,
+   "root": 2,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": null,
+   "kit": "Acoustic Kit",
+   "structure": "poem",
+   "prog": [
+    {
+     "d": 0,
+     "q": "maj7",
+     "beats": 8
+    },
+    {
+     "d": 4,
+     "q": "sus2",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "min7",
+     "beats": 8
+    },
+    {
+     "d": 3,
+     "q": "maj7",
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Sub Bass",
+    "style": "sub"
+   },
+   "mids": {
+    "instrument": "Warm Pad",
+    "style": "pad"
+   },
+   "vox": null,
+   "extra": {
+    "role": "mids",
+    "name": "Bells",
+    "instrument": "Music Box",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": "Wind",
+    "riser": null,
+    "impact": null
+   },
+   "poem": true
+  },
+  {
+   "id": "poem-melancholy",
+   "name": "Poem · Melancholy",
+   "family": "Poetry & spoken word",
+   "blurb": "Minor fingerpicking and a slow, aching violin.",
+   "tempo": 60,
+   "swing": 0,
+   "root": 9,
+   "scale": "Minor",
+   "harmony": "Minor",
+   "beat": null,
+   "kit": "Jazz Brush",
+   "structure": "poem",
+   "prog": [
+    {
+     "d": 0,
+     "q": "min",
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": "maj",
+     "beats": 8
+    },
+    {
+     "d": 2,
+     "q": "maj",
+     "beats": 8
+    },
+    {
+     "d": 6,
+     "q": "maj",
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "sub"
+   },
+   "mids": {
+    "instrument": "Nylon Guitar",
+    "style": "fingerpick"
+   },
+   "vox": null,
+   "extra": {
+    "role": "mids",
+    "name": "Violin",
+    "instrument": "Violin",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   },
+   "poem": true
+  },
+  {
+   "id": "poem-hopeful",
+   "name": "Poem · Hopeful",
+   "family": "Poetry & spoken word",
+   "blurb": "A gentle strum rising into harp and music-box light.",
+   "tempo": 76,
+   "swing": 0,
+   "root": 7,
+   "scale": "Major",
+   "harmony": "Major",
+   "beat": "soft-pulse",
+   "kit": "Jazz Brush",
+   "structure": "poem",
+   "prog": [
+    {
+     "d": 0,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 4,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 5,
+     "q": null,
+     "beats": 8
+    },
+    {
+     "d": 3,
+     "q": null,
+     "beats": 8
+    }
+   ],
+   "bass": {
+    "instrument": "Upright Bass",
+    "style": "root"
+   },
+   "mids": {
+    "instrument": "Acoustic Guitar",
+    "style": "strum_ballad"
+   },
+   "vox": null,
+   "extra": {
+    "role": "mids",
+    "name": "Harp",
+    "instrument": "Harp",
+    "style": "sparse_melody"
+   },
+   "fx": {
+    "texture": null,
+    "riser": null,
+    "impact": null
+   },
+   "poem": true
+  }
+ ]
+}

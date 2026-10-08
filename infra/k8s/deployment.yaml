@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loom
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: loom}
+  template:
+    metadata:
+      labels: {app: loom}
+    spec:
+      containers:
+        - name: loom
+          image: loom:10.0.0
+          ports: [{containerPort: 8000}]
+          readinessProbe:
+            httpGet: {path: /api/health, port: 8000}
+          resources:
+            requests: {cpu: 100m, memory: 192Mi}
+            limits: {cpu: 1000m, memory: 512Mi}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: loom}
+spec:
+  selector: {app: loom}
+  ports: [{port: 80, targetPort: 8000}]

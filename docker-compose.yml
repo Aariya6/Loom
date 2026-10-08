@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://loom:loom@postgres:5432/loom
+      CORS_ORIGINS: http://localhost:8000
+    depends_on: [postgres]
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: loom
+      POSTGRES_PASSWORD: loom
+      POSTGRES_DB: loom
+    volumes: [loom_pg:/var/lib/postgresql/data]
+volumes:
+  loom_pg:

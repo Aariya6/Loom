@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LOOM — User &amp; Production Guide</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+  :root { --ink:#241e1d; --wine:#5b292f; --rust:#974b37; --brass:#b38a51; --paper:#f7f0e4; --ivory:#f1e6d3; --line:#d9cdb9; --mute:#6b5f58; }
+  * { box-sizing: border-box; }
+  html { font: 10.4pt/1.55 "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: var(--ink); }
+  body { margin: 0; }
+  h1, h2, h3, h4 { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; color: var(--wine); line-height: 1.2; font-weight: 600; }
+  h1 { font-size: 25pt; margin: 0 0 6mm; padding-bottom: 3mm; border-bottom: 2px solid var(--brass); page-break-before: always; }
+  h1.first { page-break-before: auto; }
+  h2 { font-size: 15pt; margin: 8mm 0 2.5mm; }
+  h3 { font-size: 12pt; margin: 5.5mm 0 1.5mm; color: var(--rust); }
+  h4 { font-size: 10.5pt; margin: 4mm 0 1mm; color: var(--ink); font-family: inherit; text-transform: uppercase; letter-spacing: .06em; }
+  p { margin: 0 0 2.6mm; }
+  ul, ol { margin: 0 0 3mm; padding-left: 5.5mm; } li { margin-bottom: 1mm; }
+  code, kbd { font: 9pt Consolas, "Courier New", monospace; background: #efe6d6; border: 1px solid var(--line); border-radius: 2px; padding: 0 3px; }
+  kbd { background: #fff; border-bottom-width: 2px; white-space: nowrap; }
+  a { color: var(--wine); }
+  table { width: 100%; border-collapse: collapse; margin: 2mm 0 4mm; font-size: 9.4pt; page-break-inside: auto; }
+  th { text-align: left; background: var(--ivory); color: var(--wine); padding: 1.6mm 2.2mm; border-bottom: 2px solid var(--brass); }
+  td { padding: 1.5mm 2.2mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr { page-break-inside: avoid; }
+  td:first-child { font-weight: 600; width: 33mm; }
+  .t2 td:first-child { width: auto; white-space: normal; font-weight: 400; }
+  figure { margin: 3mm 0 4.5mm; page-break-inside: avoid; }
+  figure img { width: 100%; border: 1px solid var(--line); border-radius: 3px; display: block; }
+  figcaption { font-size: 8.6pt; color: var(--mute); margin-top: 1.2mm; }
+  .note, .tip, .warn { padding: 2.4mm 3.4mm; margin: 2.5mm 0 4mm; border-left: 4px solid var(--brass); background: #fbf4e2; page-break-inside: avoid; font-size: 9.8pt; }
+  .tip { border-color: #4f7f86; background: #eaf3f4; } .warn { border-color: #b3261e; background: #fbeceb; }
+  .note b:first-child, .tip b:first-child, .warn b:first-child { text-transform: uppercase; font-size: 8.4pt; letter-spacing: .08em; margin-right: 2mm; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .box { border: 1px solid var(--line); padding: 3mm 4mm; background: #fffdf8; border-radius: 3px; page-break-inside: avoid; }
+  .cover { height: 250mm; display: flex; flex-direction: column; justify-content: center; text-align: left; }
+  .cover .mark { width: 22mm; height: 22mm; border-radius: 50%; border: 3px solid var(--wine); position: relative; margin-bottom: 10mm; }
+  .cover .mark::after { content: ""; position: absolute; inset: 5mm; border-radius: 50%; background: var(--brass); }
+  .cover h1 { font-size: 46pt; border: 0; padding: 0; margin: 0 0 3mm; page-break-before: auto; letter-spacing: .02em; }
+  .cover .sub { font: 17pt Georgia, serif; color: var(--rust); margin-bottom: 14mm; }
+  .cover .meta { color: var(--mute); font-size: 10pt; border-top: 1px solid var(--line); padding-top: 4mm; max-width: 120mm; }
+  .toc { columns: 2; column-gap: 10mm; font-size: 10pt; } .toc div { break-inside: avoid; margin-bottom: 1.4mm; } .toc .n { color: var(--brass); font-weight: 700; display: inline-block; width: 9mm; }
+  .chips span { display: inline-block; padding: .4mm 2.6mm; border-radius: 2mm; color: #fff; font-weight: 700; font-size: 9pt; margin: 0 1.5mm 1.5mm 0; }
+  .flow { display: flex; align-items: stretch; gap: 2mm; margin: 3mm 0 5mm; page-break-inside: avoid; flex-wrap: wrap; }
+  .flow div { flex: 1 1 22mm; border: 1.5px solid var(--wine); background: #fff; padding: 2mm 2.4mm; border-radius: 2.5mm; font-size: 8.8pt; text-align: center; }
+  .flow div b { display: block; color: var(--wine); font-size: 9.2pt; } .flow .arrow { flex: 0 0 4mm; border: 0; background: none; color: var(--brass); font-size: 14pt; padding: 0; align-self: center; }
+  .step { counter-increment: step; position: relative; padding-left: 9mm; margin-bottom: 2.2mm; } .step::before { content: counter(step); position: absolute; left: 0; top: 0; width: 6mm; height: 6mm; border-radius: 50%; background: var(--wine); color: #fff; font-weight: 700; text-align: center; line-height: 6mm; font-size: 9pt; }
+  .steps { counter-reset: step; }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="mark"></div>
+  <h1 class="first">LOOM</h1>
+  <div class="sub">A music workshop for every kind of song — and for poems that want a sound.</div>
+  <div class="meta">
+    <b>User &amp; Production Guide</b><br>
+    What every control does, how a piece of music is made in LOOM, and how the machinery underneath works.<br><br>
+    Release 10 (studio rebuild) · Source: github.com/Aariya6/Loom
+  </div>
+</section>
+
+<h1>Contents</h1>
+<div class="toc">
+  <div><span class="n">1</span>What LOOM is</div>
+  <div><span class="n">2</span>Quick start — a song in five minutes</div>
+  <div><span class="n">3</span>The screen at a glance</div>
+  <div><span class="n">4</span>The five elements</div>
+  <div><span class="n">5</span>Pattern view — the piano roll</div>
+  <div><span class="n">6</span>Steps view — the drum machine</div>
+  <div><span class="n">7</span>Arrange view — the song timeline</div>
+  <div><span class="n">8</span>Mixer view</div>
+  <div><span class="n">9</span>Words view — poems and lyrics</div>
+  <div><span class="n">10</span>Sounds, samples and effects</div>
+  <div><span class="n">11</span>Writing music faster</div>
+  <div><span class="n">12</span>Voice and audio clips</div>
+  <div><span class="n">13</span>Automation</div>
+  <div><span class="n">14</span>Transport, recording and MIDI</div>
+  <div><span class="n">15</span>Saving, history, import and export</div>
+  <div><span class="n">16</span>Share and collaborate</div>
+  <div><span class="n">17</span>Keyboard shortcuts</div>
+  <div><span class="n">18</span>Recipes: country, poetry, retro, jazz, soothing</div>
+  <div><span class="n">19</span>How production works inside LOOM</div>
+  <div><span class="n">20</span>Installing, running and deploying</div>
+  <div><span class="n">21</span>Troubleshooting</div>
+  <div><span class="n">22</span>Limits, licences and credits</div>
+</div>
+
+<!-- ============================================================ 1 -->
+<h1>1 · What LOOM is</h1>
+<p>LOOM is a music studio that runs in a web browser. You write the notes, choose the sounds, shape the mix, record your voice, and share the result — but you can also start from a complete, editable song in a chosen style and change it until it is yours. Nothing is generated by a hosted AI service: the styles are written down as plain data and a small, deterministic generator, so a template does exactly what its description says and the same variation number gives the same song.</p>
+
+<h3>What it is good for</h3>
+<ul>
+  <li><b>Songs of almost any style</b> — 64 ready-made styles (country, soothing acoustic, retro, jazz, hip hop, house, rock, world and more) and 44 drum beats to start from or ignore.</li>
+  <li><b>Poems and spoken word</b> — paste the words, choose a mood, and get a fitted music bed with no vocal part; read over it, let LOOM lower the music under your voice, export timed lyrics.</li>
+  <li><b>Sketching and arranging</b> — a piano roll, a drum step grid, a song timeline with named sections, and a mixer.</li>
+  <li><b>Showing your work</b> — a share link anyone can open without installing anything, with comments pinned to the exact second, a screen-and-voice walkthrough recorder and a searchable transcript.</li>
+  <li><b>Making it together</b> — invite people to edit a song with you; saves sync, and if two people save at once nothing is overwritten.</li>
+</ul>
+
+<h3>What it is not</h3>
+<ul>
+  <li>It is not a replacement for a full professional DAW: there are no third-party plug-ins, no multi-microphone audio editing, and the time signature is always 4/4.</li>
+  <li>Sounds are a mix of <b>recorded samples</b> (piano, guitars, strings, real drum kits and more) and <b>synthesised</b> instruments. Recordings are a sparse selection that LOOM pitch-shifts, so they are good, not a full multi-sampled library.</li>
+  <li>It cannot sing for you or read your poem aloud into the mix. Vocals are yours: record them or import a file.</li>
+</ul>
+
+<div class="note"><b>Honesty note</b>The automated tests in this project render every instrument and every style through the real audio engine and check the numbers (loudness, silence, clipping, pitch, timing). A computer cannot judge taste: please listen, and tell the software what you would change.</div>
+
+<!-- ============================================================ 2 -->
+<h1>2 · Quick start — a song in five minutes</h1>
+<div class="steps">
+  <div class="step"><b>Open LOOM and create an account.</b> Go to the address where LOOM is running (locally: <code>http://127.0.0.1:8000</code>), choose <i>sign up</i>, and use a password of at least ten characters that is not based on your email. Your first project is created for you.</div>
+  <div class="step"><b>Press play.</b> Your first project is a complete lo-fi song. Press <kbd>Space</kbd> or the ▶ button. The red playhead moves; the meters on the track cards dance.</div>
+  <div class="step"><b>Pick a style.</b> Click <b>✦ Genre templates</b>, filter by family (try <i>Country</i>), choose a card, and choose whether to create a new project or replace the tracks of this one. LOOM writes a 16-bar song — intro, verse, chorus, outro — across drums, bass, mids, vocals and effects.</div>
+  <div class="step"><b>Change something.</b> Each track card has a sound dropdown. Switch the guitar to <i>Banjo</i>; click the ♪ button to browse and hear every sound before you choose. Press <b>⟳ Vary</b> for a new take on the same style.</div>
+  <div class="step"><b>Write a few notes.</b> In the <b>Pattern</b> view choose <i>draw</i>, click on the grid to add a note, drag its right edge to lengthen it. Click a chord such as <i>Am</i> in the chord palette to insert a whole chord at the dashed cursor.</div>
+  <div class="step"><b>Save.</b> Press <kbd>Ctrl</kbd>+<kbd>S</kbd> (the dot on the save button means unsaved changes). Everything is stored in your project; history keeps the last 40 saves.</div>
+  <div class="step"><b>Share.</b> Click <b>⤴ share</b> then <b>Publish link</b>. Send the link: it opens, plays and takes comments with no account.</div>
+</div>
+<figure><img src="../screenshots/13-templates.png" alt=""><figcaption>The genre-template dialog, filtered to the Country family. Each card shows tempo, key, beat and sounds.</figcaption></figure>
+<div class="tip"><b>Tip</b>You cannot break anything: every edit can be undone (<kbd>Ctrl</kbd>+<kbd>Z</kbd>, up to 100 steps), and deleting notes, tracks or clips shows an <i>Undo</i> button.</div>
+
+<!-- ============================================================ 3 -->
+<h1>3 · The screen at a glance</h1>
+<figure><img src="../screenshots/03-pattern.png" alt=""><figcaption>The studio. Left: project name, tracks and master. Centre: the view tabs and the editing area. Right: the inspector for the selected track.</figcaption></figure>
+
+<h3>Top bar</h3>
+<table>
+  <tr><th>Control</th><th>What it does</th></tr>
+  <tr><td>project ▾</td><td>The project menu: switch project, create a blank room (one empty track per element), create from a genre template, import a MIDI file, open the version history, delete the project (owner only).</td></tr>
+  <tr><td>⏮ ▶ ■</td><td>Return to start (<kbd>Home</kbd>), play / pause (<kbd>Space</kbd>), stop and rewind (<kbd>Enter</kbd>).</td></tr>
+  <tr><td>● rec</td><td>Arms note recording: while the song plays, keys on your computer keyboard or a MIDI keyboard are written into the selected track.</td></tr>
+  <tr><td>⟲ loop</td><td>Loops the region between the loop markers. Set the region by <kbd>Shift</kbd>-dragging on a ruler.</td></tr>
+  <tr><td>♩ click</td><td>Metronome (accented on the first beat of each bar). Heard live only; never exported.</td></tr>
+  <tr><td>time display</td><td>Position as bar : beat : sixteenth. Hover for minutes:seconds.</td></tr>
+  <tr><td>BPM</td><td>Tempo, 30–240. Changing it re-times everything, including the delay effect.</td></tr>
+  <tr><td>swing</td><td>0–100%. Delays every off-beat eighth note a little for a looser, shuffled feel.</td></tr>
+  <tr><td>key, scale</td><td>Root note and scale (Chromatic, Major, Minor, Dorian, Mixolydian, Pentatonic Major/Minor, Blues). Highlights in-key rows in the piano roll, builds the chord palette and powers <i>fit to key</i>.</td></tr>
+  <tr><td>bars</td><td>Song length: even numbers up to 32, then multiples of 4 up to 64.</td></tr>
+  <tr><td>⤴ share</td><td>Opens the share dialog: public link, walkthrough recorder, feedback, collaborators, song summary (chapter 16).</td></tr>
+  <tr><td>save</td><td>Saves the project (<kbd>Ctrl</kbd>+<kbd>S</kbd>). If a collaborator saved first you are asked how to merge.</td></tr>
+  <tr><td>export ▾</td><td>MIDI file, WAV mix, MP3 mix, or one WAV per track (stems). See chapter 15.</td></tr>
+</table>
+
+<h3>Left panel</h3>
+<ul>
+  <li><b>Project name</b> — click to rename.</li>
+  <li><b>add: 1 Drums … 5 Effects</b> — adds an empty track of that element.</li>
+  <li><b>Track cards</b> — each shows name, element, note count, a level meter and: <i>M</i> mute, <i>S</i> solo, <i>✕</i> delete, a <b>sound dropdown</b>, <i>♪</i> sound browser, <i>↑ ↓</i> reorder, and a volume slider. Double-click the name to rename. Click anywhere else on the card to select the track.</li>
+  <li><b>master</b> — output gain, reverb return, compressor/limiter, and the <i>recorded samples</i> switch (chapter 10).</li>
+</ul>
+
+<h3>Tabs</h3>
+<p><b>Pattern</b> (notes), <b>Steps</b> (drum grid), <b>Arrange</b> (song timeline and audio clips), <b>Mixer</b>, <b>Words</b> (poems). On the right of the tab bar: <b>✦ Genre templates</b>, <b>⟳ Vary</b>, undo/redo, <b>🎹 MIDI in</b>, <b>analysis</b> (charts and a live scope), <b>inspector</b> (show/hide), and <b>?</b> (shortcut sheet).</p>
+
+<!-- ============================================================ 4 -->
+<h1>4 · The five elements</h1>
+<p>LOOM organises every song around five parts. A good track usually has at least one of each, and the colour chips on the left panel add them. This is the “5-element formula”.</p>
+<div class="chips"><span style="background:#974b37">1 Drums</span><span style="background:#b38a51">2 Bass</span><span style="background:#6f7d4a">3 Mids</span><span style="background:#4f7f86">4 Vox</span><span style="background:#7b5a8a">5 Effects</span></div>
+<table>
+  <tr><th>Element</th><th>Role</th><th>Sounds</th></tr>
+  <tr><td>1 · Drums</td><td>Rhythm and energy. Edited per drum lane (kick, snare, hats…).</td><td>10 kits: Acoustic (real recorded drums), Rock, Jazz Brush, 808, Trap, Lo-Fi, Electronic, House, Linn (LinnDrum samples), CR-78 (Roland samples). 16 lanes: kick, rim, snare, clap, low/high tom, closed/open hat, crash, ride, tambourine, cowbell, congas, shaker, clave.</td></tr>
+  <tr><td>2 · Bass</td><td>The low foundation; locks to the kick and the chord roots.</td><td>Sub, Synth, Electric (sampled), Pluck, Acid 303, Reese, FM, Wobble, Slap (sampled), Upright (sampled), Square Sub.</td></tr>
+  <tr><td>3 · Mids</td><td>Chords, guitars, keys, melodies and leads — the harmony and the tune.</td><td>Keys &amp; mallets (Soft Keys, Rhodes, Grand Piano, Organ, Clav, Vibraphone, Marimba, Kalimba, Music Box, Accordion), guitars (Acoustic, Electric Clean, Overdrive, Distortion, Muted, 12-String, Nylon, Ukulele, Banjo, Mandolin, Harp, Pedal Steel), strings &amp; winds (Strings, Violin, Cello, Pizzicato, Mellotron, Trumpet, Sax, Flute, Brass Section), synths (Warm Pad, Analog Poly, Pluck, Saw/Square Lead, Super Saw).</td></tr>
+  <tr><td>4 · Vox</td><td>Voices: sung-style synth choirs, or your own recorded/imported audio.</td><td>Choir Ahh/Ooh/Eee, Vox Lead, Vox Chop, Whisper, Humming, and <b>Audio Clips</b> (a track that holds recordings and imported files).</td></tr>
+  <tr><td>5 · Effects</td><td>Transitions and atmosphere.</td><td>Riser, Downlifter, Impact, Noise Sweep, Laser, Texture, Reverse Cymbal, Sub Drop, Vinyl Crackle, Wind, Whoosh, Glitch.</td></tr>
+</table>
+<p>77 instruments in all; 31 of them (plus three drum kits) play real recordings when <i>recorded samples</i> is on — chapter 10.</p>
+<div class="note"><b>Changing element</b>Picking a sound from another element (for example a guitar on a bass track) moves the track to that element automatically. The inspector's <i>element</i> dropdown does the same on purpose.</div>
+
+<!-- ============================================================ 5 -->
+<h1>5 · Pattern view — the piano roll</h1>
+<p>Pattern is where notes are written. The grid runs left to right in time (a bar is four beats) and top to bottom in pitch; for drum tracks the rows are drum names instead of pitches. Faint shapes behind your notes are “ghost notes” from your other tracks, so you can see how parts overlap and line up.</p>
+
+<h3>The toolbar</h3>
+<table>
+  <tr><th>Control</th><th>What it does</th></tr>
+  <tr><td>✎ draw (1)</td><td>Click an empty cell to add a note (length = last length you used, at least one snap step). Drag horizontally while creating to set its length. Clicking an existing note moves/resizes it instead.</td></tr>
+  <tr><td>⬚ select (2)</td><td>Click a note to select; <kbd>Shift</kbd>-click to add or remove; drag on empty space for a box. Drag selected notes to move them in time and pitch; drag the right edge to change length. Moves snap to the grid.</td></tr>
+  <tr><td>⌫ erase (3)</td><td>Click or drag across notes to delete them. (Right-click deletes a single note in any tool.)</td></tr>
+  <tr><td>snap</td><td>Grid resolution: 1 bar, 1/2 bar, beat, 1/8, 1/8 triplet, 1/16, 1/16 triplet, 1/32.</td></tr>
+  <tr><td>zoom, follow</td><td>Horizontal zoom (also <kbd>Ctrl</kbd>+wheel). <i>Follow</i> scrolls the roll with the playhead.</td></tr>
+  <tr><td>quantize</td><td>Snaps the selected notes (or all notes if none selected) to the grid, including their lengths.</td></tr>
+  <tr><td>humanize</td><td>Nudges timing by up to about ±0.025 beat and velocity by up to about ±8% so a mechanical part breathes.</td></tr>
+  <tr><td>fit to key</td><td>Moves out-of-key notes to the nearest note of the chosen key and scale.</td></tr>
+  <tr><td>×2</td><td>Repeats the track's pattern once more straight after its end (rounded up to whole bars) and grows the song if needed.</td></tr>
+  <tr><td>clear</td><td>Deletes every note on this track (with an Undo button).</td></tr>
+  <tr><td>beat…</td><td>For drum tracks: fills the whole song with a chosen beat (44 to choose from, grouped by family, with the usual tempo range shown). Fills appear on every fourth bar and crashes on bar one of each group of four.</td></tr>
+  <tr><td>chords</td><td>Shows or hides the chord palette.</td></tr>
+  <tr><td>🗑 delete selected</td><td>Removes the selected notes (also <kbd>Delete</kbd>). Shows an Undo button.</td></tr>
+</table>
+
+<h3>The ruler, cursor and keys</h3>
+<ul>
+  <li><b>Ruler</b> — click to move the playhead; <kbd>Shift</kbd>-drag to set the loop region. Section names from Arrange appear here.</li>
+  <li><b>Dashed insert cursor</b> — where the next chord or riff from the palette will be written. Click in the roll to move it; it advances after each insertion so chords chain.</li>
+  <li><b>Piano keys / drum names</b> — click to hear that pitch or drum with the track's sound.</li>
+  <li><b>Velocity lane</b> — below the roll: one bar per note; drag to set loudness (notes under the pointer, or the whole selection). Switch this lane to an automation lane — see chapter 13.</li>
+</ul>
+
+<h3>Selection actions (inspector)</h3>
+<p>With notes selected the inspector shows: a velocity slider; transpose buttons (−12, −1, +1, +12 semitones); duplicate; delete; and <b>arpeggiate</b> (turns selected chord notes into an up, down, up-down or random pattern at 1/4, 1/8, 1/8T or 1/16).</p>
+
+<h3>The chord palette</h3>
+<figure><img src="../screenshots/03-pattern.png" alt="" style="max-height:62mm;object-fit:cover;object-position:top"><figcaption>The strip under the toolbar: the seven chords of the current key, plus options.</figcaption></figure>
+<table>
+  <tr><th>Option</th><th>Meaning</th></tr>
+  <tr><td>chord buttons</td><td>The seven chords of your key and scale, with Roman numerals (I, ii, iii…). Click one to write it at the cursor.</td></tr>
+  <tr><td>quality</td><td>Override the quality (maj, min, 7, maj7, min7, sus2, sus4, dim, aug, add9, 9, min9, 6, min6, dim7, m7b5) — “in key” uses the diatonic one.</td></tr>
+  <tr><td>inversion, octave</td><td>Re-voice the chord (root position, first or second inversion) and shift it down or up an octave.</td></tr>
+  <tr><td>play as</td><td>Block chord, folk strum, pop strum, ballad, down-strokes, boom-chick, funk scratch, <b>fingerpicking</b>, palm-mute <b>chug</b> or <b>power chords</b>. A strum spreads the notes slightly low-to-high (down) or high-to-low (up) like a real guitar.</td></tr>
+  <tr><td>length</td><td>1 bar, 2 beats, 1 beat, or the snap length.</td></tr>
+  <tr><td>or any + root</td><td>Insert any chord, not just the seven in-key ones.</td></tr>
+  <tr><td>🎸 riff</td><td>Writes a 2-, 4- or 8-bar pentatonic guitar riff in your key at the cursor: a short motif that repeats, with a changed ending every fourth bar.</td></tr>
+</table>
+<div class="tip"><b>Tip</b>On a Bass track the palette writes only the chord root, in the bass register — a quick way to follow your chords.</div>
+
+<!-- ============================================================ 6 -->
+<h1>6 · Steps view — the drum machine</h1>
+<figure><img src="../screenshots/04-steps.png" alt=""><figcaption>Steps: one row per drum, 16 steps per bar. A red outline follows the playhead.</figcaption></figure>
+<p>Select a Drums track, then open <b>Steps</b>. Each square is a sixteenth note.</p>
+<ul>
+  <li><b>Click</b> an empty square to place a hit; click a filled square to remove it. <b>Drag</b> across squares to paint on or off.</li>
+  <li><b>Shift-click</b> to place an accent, or to cycle a hit between accent → normal → ghost (quiet).</li>
+  <li><b>Right-click</b> clears a square. Click a drum name on the left to hear it.</li>
+  <li><b>Page</b> arrows and <i>show 1/2/4 bars</i> move through long songs.</li>
+  <li>The <b>fill with a beat…</b> menu writes a ready-made beat over the whole song.</li>
+</ul>
+<p>Hits that are not on the sixteenth-note grid (for example recorded from a keyboard) do not appear here, but they still play and they show in Pattern.</p>
+
+<!-- ============================================================ 7 -->
+<h1>7 · Arrange view — the song timeline</h1>
+<figure><img src="../screenshots/05-arrange.png" alt=""><figcaption>Arrange: sections along the top, one lane per track, note thumbnails, and an audio clip with its waveform.</figcaption></figure>
+<p>Arrange shows the whole song at once. Every track is a lane; note tracks show a small picture of their notes, audio tracks show clips with waveforms.</p>
+
+<h3>Sections</h3>
+<ul>
+  <li>The purple bar under the ruler holds <b>sections</b> (Intro, Verse, Chorus…). Genre templates and poems create them for you; <b>+ section</b> adds one at the playhead (it asks for a name), <b>rename</b> renames the nearest one, <b>✕ section</b> deletes the selected one.</li>
+  <li><b>Click a section</b> to select it as a range (and jump to it). <b>Drag across the bar</b> to choose your own range, snapped to bars (hold <kbd>Alt</kbd> for fine control).</li>
+</ul>
+<h3>Range tools</h3>
+<table>
+  <tr><th>Button</th><th>What it does (all tracks unless noted)</th></tr>
+  <tr><td>duplicate</td><td>Inserts a copy of the range right after it and pushes everything after it later. Section markers inside are copied too. This is how you turn a verse into two verses.</td></tr>
+  <tr><td>cut out</td><td>Removes the range and closes the gap.</td></tr>
+  <tr><td>clear on track</td><td>Empties the range on the <i>selected track only</i>, leaving the others playing — handy for a breakdown.</td></tr>
+</table>
+<h3>Audio clips</h3>
+<ul>
+  <li><b>Import audio</b> or <b>drop files onto a lane</b>: WAV, MP3, OGG, FLAC, M4A or WebM up to 12 MB each. A new <i>Audio Clips</i> track is created if the selected track is not one.</li>
+  <li><b>Move</b> a clip by dragging it (also to another track); <b>trim</b> by dragging either edge; <b>split</b> at the playhead (<kbd>Ctrl</kbd>+<kbd>E</kbd>); <b>duplicate</b>; <b>delete</b>.</li>
+  <li><b>Overlap</b> — clips may overlap freely. Fade one out and the next in (inspector: fade in / fade out) to crossfade. Overlapping clips on different tracks simply layer.</li>
+  <li>Click <b>M</b> / <b>S</b> in the lane header to mute or solo; click the lane to select the track.</li>
+</ul>
+
+<!-- ============================================================ 8 -->
+<h1>8 · Mixer view</h1>
+<figure><img src="../screenshots/06-mixer.png" alt=""><figcaption>The mixer: one strip per track plus the master.</figcaption></figure>
+<table>
+  <tr><th>Strip control</th><th>Effect</th></tr>
+  <tr><td>fader + meter</td><td>Track volume (0–120%) with a live level meter that moves while the song plays.</td></tr>
+  <tr><td>pan</td><td>Left–right position.</td></tr>
+  <tr><td>filter</td><td>A low-pass filter: fully right = open, left = muffled. Great for “behind a wall” or for sweeps (automate it).</td></tr>
+  <tr><td>low / mid / high</td><td>Three-band EQ at 120 Hz (shelf), 1 kHz (bell) and 6 kHz (shelf), −12 to +12 dB.</td></tr>
+  <tr><td>delay</td><td>Send to a tempo-synced echo (a dotted eighth note, with soft repeats).</td></tr>
+  <tr><td>reverb</td><td>Send to a shared room-style reverb.</td></tr>
+  <tr><td>M / S</td><td>Mute and solo.</td></tr>
+  <tr><td>Master</td><td>Overall gain and the reverb return level.</td></tr>
+</table>
+<div class="tip"><b>Mixing order that works</b>Set volumes first with the drums and bass; add the mids until the chords sit comfortably; bring in vocals; then use EQ to clear space (cut low end on non-bass parts, soften harshness in the high band) and use reverb/delay sparingly — more on sounds that should sit <i>back</i>, less on sounds that should be <i>up front</i>.</div>
+
+<!-- ============================================================ 9 -->
+<h1>9 · Words view — poems and lyrics</h1>
+<figure><img src="../screenshots/11-words-poem.png" alt=""><figcaption>Words: the poem on the left, the timed lines on the right. The current line is shown large and highlighted while the song plays.</figcaption></figure>
+<h3>Turn a poem into a song bed</h3>
+<div class="steps">
+  <div class="step"><b>Paste or write the poem.</b> Leave a blank line between stanzas. Up to 400 lines. The status line shows lines, stanzas and the estimated length in bars and minutes.</div>
+  <div class="step"><b>Choose a mood.</b> Soft Acoustic, Piano &amp; Strings, Country Porch, Retro Tape, Late-Night Jazz, Ambient Air, Melancholy or Hopeful. Each sets tempo, key, sounds and chord pace.</div>
+  <div class="step"><b>Choose a reading pace</b> (slow &amp; dramatic, natural, brisk) and a <b>variation</b> number (🎲 picks another) and whether to build into a <i>new project</i> or replace this project's music (your recorded audio tracks are kept).</div>
+  <div class="step"><b>Press “Build music for this poem”.</b> LOOM makes an Intro, one section per stanza and an Outro. Each line gets as many bars as a natural reading needs at that tempo (at least one). The bed has bass, guitar or piano, a gentle second instrument and — in some moods — a barely-there pulse. It has <b>no vocal part</b>: the voice is yours.</div>
+</div>
+<h3>Read it over the music</h3>
+<ul>
+  <li><b>● Record my reading</b> — creates a <i>Voice</i> track, places the playhead at your first line, starts the music and records your microphone. Press stop when you finish; the take lands on the Voice track where your first line begins. Use headphones so the music does not leak into the microphone.</li>
+  <li><b>⤒ Import my reading…</b> — use a recording you already have; it is placed at your first line.</li>
+  <li>Drag the clip in Arrange if your reading does not line up with the sections.</li>
+</ul>
+<h3>Duck the music under your voice</h3>
+<p><b>Duck music under my voice</b> looks at every voice clip and writes a volume curve on every music track: a smooth 1-beat ramp down to 60%, 45% (default) or 30% just before you speak, held while you speak, then a smooth ramp back up. Because the curves are ordinary volume automation, you can refine them in Pattern (lane “Volume”). <b>Remove ducking</b> clears them. If you move the voice clip afterwards, press the button again.</p>
+<figure><img src="../screenshots/14-automation-duck.png" alt=""><figcaption>The ducking curve shown in the volume lane under the piano roll: normal level, a dip under the voice, then back.</figcaption></figure>
+<h3>Lyrics everywhere</h3>
+<ul>
+  <li>Click any line to jump to it. In the studio and on the public share page the current line follows the playhead.</li>
+  <li><b>Export lyrics (.lrc)</b> gives time-stamped lyrics for music players; <b>Export subtitles (.srt)</b> gives subtitle timings for video editors.</li>
+  <li>The poem text and mood are saved with the project, so you can come back, edit the words and build again.</li>
+</ul>
+<div class="note"><b>How accurate is the timing?</b>Line times come from a syllable count and the pace you chose — a reasonable reader's pace, not an analysis of your recording. Treat them as a good starting grid and move your clip (or the sections) if your performance differs.</div>
+
+<!-- ============================================================ 10 -->
+<h1>10 · Sounds, samples and effects</h1>
+<h3>Choosing a sound</h3>
+<ul>
+  <li>The <b>dropdown on a track card</b> lists the sounds of that track's element.</li>
+  <li><b>♪ (sound browser)</b> lists all 77 sounds in categories (Guitars &amp; plucked, Keys &amp; mallets, Strings &amp; winds, Synths &amp; pads, Bass, Drum kits, Voices, FX &amp; textures) with search. <i>Click once to hear it; double-click (or “Use this sound”) to apply it.</i> The audition plays a short phrase suited to the sound (a chord, a bass line, a drum pattern).</li>
+</ul>
+<figure><img src="../screenshots/10-sound-browser.png" alt=""><figcaption>The sound browser, searched for “guitar”.</figcaption></figure>
+
+<h3>Recorded samples or synth?</h3>
+<p>31 instruments and three drum kits have real recordings (grand piano, Rhodes, clavinet, steel/nylon/clean/overdriven/distorted/muted guitars, banjo, harp, pizzicato, three basses, marimba, vibraphone, music box, kalimba, violin, cello, strings, trumpet, sax, flute, brass, accordion, organ, two choirs, warm pad; Acoustic Kit from recorded drums plus Linn and CR-78 kits). All 77 can be synthesised.</p>
+<table>
+  <tr><th>Situation</th><th>What you hear</th></tr>
+  <tr><td>recorded samples on (default) and loaded</td><td>The recording, pitch-shifted to your note. Plucked/struck sounds ring and fade naturally; held sounds (strings, brass, choir, organ) loop smoothly when a note lasts longer than the recording.</td></tr>
+  <tr><td>still loading, or note outside the recorded range, or a drum lane the recorded kit lacks (e.g. no clap in the acoustic kit)</td><td>The synthesiser fills in, note by note — nothing goes silent.</td></tr>
+  <tr><td>recorded samples off (master panel)</td><td>Synth only. Smaller download, original LOOM sound.</td></tr>
+</table>
+<p>The status text beside the switch says how many sampled sounds are ready. Samples are fetched only for sounds your project uses.</p>
+
+<h3>The inspector's sound controls</h3>
+<table>
+  <tr><th>Control</th><th>What it changes</th></tr>
+  <tr><td>attack</td><td>How slowly a sound fades in (long = pad-like, short = plucked).</td></tr>
+  <tr><td>release / decay</td><td>How long a sound lingers after the note ends (for drums: how long the hit rings).</td></tr>
+  <tr><td>tone / brightness</td><td>Opens or closes the high end of the voice.</td></tr>
+  <tr><td>pitch shift</td><td>Transposes the whole track up to ±24 semitones.</td></tr>
+  <tr><td>layer</td><td>Stacks a second sound on exactly the same notes (pad + pluck, a bass an octave up…) with its own level and a −12 / −7 / 0 / +7 / +12 semitone shift.</td></tr>
+  <tr><td>filter · EQ · drive · tape</td><td>Low-pass filter; three-band EQ; <b>drive</b> (soft-clip saturation, from warm to crunchy); <b>tape wobble &amp; warmth</b> (slow pitch wander, fast flutter and a softer top end — the “old cassette” feel).</td></tr>
+  <tr><td>delay · reverb</td><td>Send levels to the shared echo and reverb.</td></tr>
+  <tr><td>volume · pan</td><td>Level and stereo position.</td></tr>
+</table>
+
+<h3>The signal path of every track</h3>
+<div class="flow">
+  <div><b>Notes</b>or clips</div><div class="arrow">›</div>
+  <div><b>Voice</b>sample or synth</div><div class="arrow">›</div>
+  <div><b>EQ</b>3 bands</div><div class="arrow">›</div>
+  <div><b>Filter</b>low-pass</div><div class="arrow">›</div>
+  <div><b>Drive</b>saturation</div><div class="arrow">›</div>
+  <div><b>Tape</b>optional</div><div class="arrow">›</div>
+  <div><b>Pan</b></div><div class="arrow">›</div>
+  <div><b>Volume</b></div><div class="arrow">›</div>
+  <div><b>Mute / solo</b></div>
+</div>
+<div class="flow">
+  <div><b>Mute / solo</b>stage output</div><div class="arrow">›</div>
+  <div><b>Delay send</b>dotted 1/8 echo</div><div class="arrow">+</div>
+  <div><b>Reverb send</b>shared room</div><div class="arrow">›</div>
+  <div><b>Master bus</b>compressor · gain</div><div class="arrow">›</div>
+  <div><b>Output</b>speakers · WAV · MP3</div>
+</div>
+
+<!-- ============================================================ 11 -->
+<h1>11 · Writing music faster</h1>
+<h3>Genre templates</h3>
+<p>The <b>✦ Genre templates</b> dialog lists 64 styles in families: <i>Country</i> (ballad, honky-tonk, bluegrass, outlaw, country-pop, western), <i>Acoustic &amp; soothing</i> (lullaby, soothing acoustic, morning coffee, Sunday folk), <i>Retro</i> (70s soul, 80s pop, doo-wop, rockabilly, tape dreams, lounge), <i>Jazz</i> (ballad, smooth, cool, big-band swing), <i>Poetry &amp; spoken word</i> (eight moods), and hip hop, house/dance, rock/guitar, groove, breaks, world and cinematic styles.</p>
+<ul>
+  <li>Choose <b>into: a new project</b> (safe) or <b>replace this project's tracks</b> (your imported/recorded audio tracks are kept).</li>
+  <li><b>variation</b> — a number from 1–99999; the same number always makes the same song. 🎲 picks one at random.</li>
+  <li><b>⟳ Vary</b> (in the tab bar) rewrites the notes of the template tracks with a new variation while keeping your sounds, mix, key, tempo and anything you added.</li>
+  <li>Each template is a 16-bar song with named sections and a chord progression. Different sections include different parts: for example an intro may have only keys and light percussion, the chorus all five elements.</li>
+</ul>
+<h3>Beats</h3>
+<p>Beats are described as drum patterns of 16 steps per bar with accents (loud), normal and ghost (quiet) hits, plus optional <i>fills</i> and <i>lead-in crashes</i>. The <b>beat…</b> menu in Pattern and Steps writes one into the selected drum track for the whole song.</p>
+<h3>Other time-savers</h3>
+<table>
+  <tr><th>Feature</th><th>When to use it</th></tr>
+  <tr><td>fit to key</td><td>You pasted or played notes and a few are “wrong”.</td></tr>
+  <tr><td>quantize / humanize</td><td>Tighten a loose recording, or loosen a rigid pattern.</td></tr>
+  <tr><td>arpeggiate</td><td>Turn a held chord into a flowing pattern.</td></tr>
+  <tr><td>duplicate range (Arrange)</td><td>Build structure: copy a verse, then change the copy.</td></tr>
+  <tr><td>layer</td><td>Make one part bigger without writing it twice.</td></tr>
+  <tr><td>copy / paste / duplicate (<kbd>Ctrl</kbd>+<kbd>C</kbd> <kbd>V</kbd> <kbd>D</kbd>)</td><td>Reuse a lick or a drum fill.</td></tr>
+</table>
+
+<!-- ============================================================ 12 -->
+<h1>12 · Voice and audio clips</h1>
+<h3>Recording a vocal or instrument</h3>
+<ol>
+  <li>Add a <b>Vox</b> track and set its sound to <i>Audio Clips</i> (or select an existing audio track).</li>
+  <li>Put the playhead where you want to begin and press <b>● record vocal</b> in the inspector (or in Arrange). Your browser asks for microphone permission the first time.</li>
+  <li>The rest of the song plays while you record — <b>wear headphones</b>, otherwise the speakers bleed into the microphone.</li>
+  <li>Press <b>■ stop take</b>. The take appears as a clip and is uploaded to your project so it is there next time.</li>
+</ol>
+<p>Echo cancellation, noise suppression and automatic gain are switched off so you get the raw signal; trim or fade the ends in Arrange. There is no latency compensation: if your take sits slightly late, drag the clip a little earlier or set its <i>start (beats)</i> in the inspector.</p>
+
+<h3>The selected-clip controls</h3>
+<table>
+  <tr><th>Control</th><th>Meaning</th></tr>
+  <tr><td>start (beats)</td><td>Exact position of the clip on the timeline.</td></tr>
+  <tr><td>gain</td><td>Clip level, 0–200%.</td></tr>
+  <tr><td>fade in / fade out</td><td>Linear fades up to 8 seconds; use them to hide edits and crossfade overlapping clips.</td></tr>
+  <tr><td>speed</td><td>0.5×–2×. Without “keep pitch” it behaves like tape: faster = higher, slower = lower.</td></tr>
+  <tr><td>keep pitch (time-stretch)</td><td>Changes the speed <i>without</i> changing pitch: a voice stays a voice. LOOM computes a stretched copy in the browser the first time it is needed (the note “stretching…” shows while it works). Best between about 0.7× and 1.5×.</td></tr>
+  <tr><td>match tempo…</td><td>Enter the tempo (BPM) the audio was recorded at; LOOM sets the speed so it lines up with the project and switches “keep pitch” on.</td></tr>
+  <tr><td>split · duplicate · delete</td><td>Edit clips like pieces of tape.</td></tr>
+</table>
+<div class="note"><b>Storage</b>Audio lives on the server with the project, so it follows you between devices. Limits: 12 MB per file, 40 files and 60 MB per project. Recorded or imported audio is not synthetic: everything you upload is yours to manage; deleting a project deletes its audio.</div>
+
+<!-- ============================================================ 13 -->
+<h1>13 · Automation</h1>
+<p>Automation makes a setting change over time: a filter that opens through a build-up, a pad that fades in, a sound that drifts across the stereo field, or music that dips under a voice.</p>
+<ol>
+  <li>Select a track and open <b>Pattern</b>.</li>
+  <li>In the strip under the roll, change the dropdown from <i>Velocity (notes)</i> to <b>Automation: Volume / Filter / Pan / Reverb send / Delay send</b>.</li>
+  <li><b>Click</b> to add a point; <b>drag</b> a point to move it (it snaps to the grid in time); <b>right-click or double-click</b> a point to delete it; <b>clear lane</b> removes the whole lane.</li>
+</ol>
+<p>Between points the value ramps in a straight line; before the first point and after the last it holds the first/last value. While a lane exists, the lane owns that setting and the knob is ignored for it (the dashed line shows the knob's value when there is no lane). Playback that starts in the middle of the song, or a loop restarting, begins at the lane's value at that moment. Automation is saved with the project and included in WAV/MP3/stem exports and on the public share page. Mute and solo always win over automated volume.</p>
+
+<!-- ============================================================ 14 -->
+<h1>14 · Transport, recording and MIDI</h1>
+<h3>Playing and looping</h3>
+<ul>
+  <li>Press play from anywhere: click the ruler first. <kbd>Home</kbd> returns to the start (or the loop start).</li>
+  <li><b>Loop</b>: <kbd>Shift</kbd>-drag a ruler to define the region, press <b>⟲ loop</b>. Playback wraps without a gap; long clips and automation continue correctly across the wrap.</li>
+  <li>Changing tempo while playing re-times the song smoothly.</li>
+</ul>
+<h3>Playing notes</h3>
+<ul>
+  <li><b>Computer keyboard</b> — letters <kbd>A</kbd> <kbd>W</kbd> <kbd>S</kbd> <kbd>E</kbd> <kbd>D</kbd> <kbd>F</kbd> <kbd>T</kbd> <kbd>G</kbd> <kbd>Y</kbd> <kbd>H</kbd> <kbd>U</kbd> <kbd>J</kbd> <kbd>K</kbd> <kbd>O</kbd> <kbd>L</kbd> <kbd>P</kbd> <kbd>;</kbd> are piano keys; <kbd>Z</kbd>/<kbd>X</kbd> change octave. On a drum track the same keys play the drums (kick, rim, snare, clap, toms, hats…).</li>
+  <li><b>MIDI keyboard</b> — press <b>🎹 MIDI in</b> and allow the browser's MIDI permission (Chrome, Edge, Brave). Velocity from the keys is used.</li>
+  <li><b>Recording</b> — arm <b>● rec</b>, press play, and play. Each note starts on the nearest grid step and lasts as long as you hold it. Recording works on pitched and drum tracks (not on audio tracks).</li>
+</ul>
+<h3>Importing MIDI</h3>
+<p><i>project ▾ › Import MIDI file…</i> reads a standard MIDI file: each channel becomes a track (channel 10 becomes drums; others become bass, mids or vox depending on the program and pitch range), tempo is taken from the file, and the song is lengthened if needed (up to 24 tracks and 20,000 notes).</p>
+
+<!-- ============================================================ 15 -->
+<h1>15 · Saving, history, import and export</h1>
+<h3>Saving and history</h3>
+<ul>
+  <li><b>save</b> writes the project to the server; a dot appears on the button while you have unsaved changes, and your browser warns before you leave with unsaved work.</li>
+  <li><b>Version history</b> (<i>project ▾ › Version history</i>) keeps the last 40 saves. Each row says <b>who saved it</b> and <b>what changed</b> in plain words (“tempo 78 → 90”, “Drums: +14 notes”, “added track Guitar”, “Vocals: muted”). <b>restore</b> brings an old version back as a new save — nothing is lost.</li>
+</ul>
+<h3>Exporting</h3>
+<table>
+  <tr><th>Export</th><th>What you get</th></tr>
+  <tr><td>MIDI file</td><td>All tracks with notes, a tempo track, your section names as markers, General-MIDI sound numbers, drums on channel 10. Audio clips are not included (MIDI has no audio).</td></tr>
+  <tr><td>WAV mix</td><td>A 16-bit stereo 44.1 kHz render of the loop region (if loop is on) or the whole song, plus a 2.5-second tail so reverb finishes. If the mix would clip, the level is reduced just enough to avoid it.</td></tr>
+  <tr><td>MP3 mix</td><td>The same render encoded at 192 kbps with the LAME encoder (downloaded only when you use this).</td></tr>
+  <tr><td>Stems</td><td>One WAV per track (soloed, with its own effects) so you can finish a mix in another program. Your browser may ask permission to download several files.</td></tr>
+  <tr><td>Lyrics (.lrc, .srt)</td><td>From the Words tab (chapter 9).</td></tr>
+</table>
+<div class="note"><b>Render time</b>Exports are rendered faster than real time on most computers, but a 16-bar song with many tracks can take tens of seconds on a busy or slow machine. Stay on the page; LOOM tells you when it is done.</div>
+
+<!-- ============================================================ 16 -->
+<h1>16 · Share and collaborate</h1>
+<h2>The share link</h2>
+<figure><img src="../screenshots/08-share-dialog.png" alt=""><figcaption>The share dialog: title, comment switch, walkthrough status and the link.</figcaption></figure>
+<ol>
+  <li>Click <b>⤴ share</b> › <b>Publish link</b>. LOOM saves, takes a <b>snapshot</b> of the song at that moment and gives you a link.</li>
+  <li>Anyone with the link can play it, read the summary, comment and react — <b>no account or install</b>. Later edits stay private until you press <b>Update the link with the current song</b> (the link itself never changes).</li>
+  <li><b>Turn off link</b> deletes the page together with its comments and reactions. You can publish a new link later.</li>
+</ol>
+<figure><img src="../screenshots/09-public-page.png" alt=""><figcaption>What a visitor sees: the player with section buttons, the lyrics following the music, reactions, and a comment pinned to a moment.</figcaption></figure>
+<h3>What viewers can do</h3>
+<ul>
+  <li>Play, pause and seek the song (it plays live in their browser, so it starts instantly) and jump to sections; follow the lyrics if there are any.</li>
+  <li><b>Comment on an exact second</b> — a comment is pinned to the time the viewer is at in the song or in the walkthrough video; clicking its time chip jumps there. Name is optional.</li>
+  <li><b>React</b> with 👍 🔥 ❤️ 😮 👏 🎵 (a small emoji floats up).</li>
+  <li>Read the <b>summary</b>: key, tempo, length, the chords of each section (detected from the notes) and which tracks play where; search and click the <b>transcript</b> of a walkthrough.</li>
+</ul>
+<p>You see all comments and reaction counts in <b>share › Feedback</b>, where you can delete any comment, and you can switch comments off.</p>
+
+<h2>Walkthrough recorder</h2>
+<p>Show a collaborator <i>how</i> a song is built. <b>share › Walkthrough › Start recording</b> captures your screen (choose “this tab”), optionally with:</p>
+<ul>
+  <li><b>narration</b> from your microphone,</li>
+  <li>a <b>camera bubble</b> in the corner,</li>
+  <li>the <b>song's sound</b> (tick “share tab audio” when the browser asks),</li>
+  <li>an automatic <b>transcript</b> using your browser's speech recognition. <i>In Chrome this sends the audio to Google's service to transcribe it; leave it off if that matters.</i></li>
+</ul>
+<p>Recording stops with <b>■ stop</b> or after four minutes. Preview it, then <b>Publish &amp; copy link</b>; it is uploaded (up to 48 MB) and attached to the link, and the public page shows the video above the song with the transcript in a side tab. Needs Chrome, Edge or Brave on a computer.</p>
+
+<h2>Collaborating</h2>
+<ul>
+  <li><b>share › Collaborate › invite by email</b> — the person must already have a LOOM account. They then see your song in their project list (“shared by …”) and can edit it, record into it and add audio. Only you can delete it, share it or manage people. They can <i>leave</i> a project at any time; you can remove anyone.</li>
+  <li><b>Live sync</b> — LOOM checks for newer saves every few seconds (every 15 s when you are alone). If you have <i>no</i> unsaved changes, a collaborator's save appears automatically; names of people currently in the song show beside the share button.</li>
+  <li><b>Never overwritten</b> — every save says which version it started from. If someone saved first you see “Someone saved first” with three choices: <i>Load their version</i>, <i>Keep both — save mine as a new project</i>, or <i>Overwrite with mine</i>. With unsaved edits of your own you also get a banner before you try to save.</li>
+</ul>
+<div class="note"><b>Not Google-Docs-style</b>Collaboration syncs whole saves, not every keystroke. Agree who edits what, save often, and use sections/tracks to stay out of each other's way.</div>
+
+<!-- ============================================================ 17 -->
+<h1>17 · Keyboard shortcuts</h1>
+<table class="t2">
+  <tr><th colspan="2">Playing</th></tr>
+  <tr><td><kbd>Space</kbd></td><td>Play / pause</td></tr>
+  <tr><td><kbd>Enter</kbd></td><td>Stop and rewind</td></tr>
+  <tr><td><kbd>Home</kbd></td><td>Back to the start (or loop start)</td></tr>
+  <tr><td><kbd>Shift</kbd>-drag on a ruler</td><td>Set the loop region</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+wheel</td><td>Zoom the roll or the timeline</td></tr>
+  <tr><th colspan="2">Writing and editing</th></tr>
+  <tr><td><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></td><td>Draw / select / erase tools</td></tr>
+  <tr><td><kbd>A</kbd>–<kbd>L</kbd> keys, <kbd>Z</kbd> <kbd>X</kbd></td><td>Play notes; change octave</td></tr>
+  <tr><td>Right-click a note</td><td>Delete it</td></tr>
+  <tr><td><kbd>Delete</kbd></td><td>Delete selected notes (or the selected clip in Arrange)</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd> / <kbd>C</kbd> / <kbd>X</kbd> / <kbd>V</kbd> / <kbd>D</kbd></td><td>Select all / copy / cut / paste at the playhead / duplicate</td></tr>
+  <tr><td><kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd></td><td>Nudge selected notes by a semitone or a snap step (<kbd>Shift</kbd> = an octave)</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>E</kbd></td><td>Split the selected clip at the playhead</td></tr>
+  <tr><td><kbd>Esc</kbd></td><td>Clear the selection</td></tr>
+  <tr><th colspan="2">General</th></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd> (or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd>)</td><td>Undo / redo (100 steps)</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Save</td></tr>
+  <tr><td><kbd>?</kbd></td><td>Show the shortcut sheet</td></tr>
+</table>
+
+<!-- ============================================================ 18 -->
+<h1>18 · Recipes</h1>
+<h3>A country song with a country feel</h3>
+<ol>
+  <li>✦ Genre templates › <i>Country</i> › <b>Country Ballad</b> (slow, strummed) or <b>Honky-Tonk</b> (fast two-step); pick “a new project”.</li>
+  <li>Keep <i>recorded samples</i> on: the acoustic guitar, upright bass, banjo and real brushed or acoustic drums carry the style.</li>
+  <li>Swap the lead for a <b>Pedal Steel</b> (slides into each note) or a <b>Violin</b> fiddle from the sound dropdown.</li>
+  <li>On the guitar track use the chord palette with <i>play as: Boom-chick</i> to write your own verse; the bass plays root and fifth on beats 1 and 3.</li>
+  <li>Add a touch of <i>reverb</i> to the steel and <i>delay</i> (a dotted-eighth echo) for a rockabilly slapback on guitar.</li>
+</ol>
+<h3>Poetry set to soothing acoustic music</h3>
+<ol>
+  <li><b>Words</b> › paste the poem › mood <i>Soft Acoustic</i> or <i>Country Porch</i> or <i>Piano &amp; Strings</i> › <b>Build music</b>.</li>
+  <li>Play it. If the pace feels rushed, rebuild with “slow &amp; dramatic”.</li>
+  <li><b>Record my reading</b> with headphones. Do one take per stanza if you like — place them in Arrange.</li>
+  <li><b>Duck music under my voice</b> (45% is a good start), then check the dip in Pattern's Volume lane.</li>
+  <li>Add a gentle fade in on your first clip and a fade out on the last. Raise the reverb send on the Voice track a little for warmth.</li>
+  <li>Publish a link (lyrics follow along), or export <b>MP3</b> plus an <b>.srt</b> for a video.</li>
+</ol>
+<h3>Retro and tape-warm</h3>
+<ul>
+  <li>Templates: <i>Tape Dreams</i> (hazy), <i>Retro 70s Soul</i> (Rhodes, funk bass, tambourine), <i>Retro 80s Pop</i> (analog poly, gated feel), <i>Doo-Wop</i>, <i>Rockabilly</i>, <i>Retro Lounge</i>.</li>
+  <li>Select a keys or pad track › inspector › <b>filter · EQ · drive · tape</b> › raise <i>tape wobble &amp; warmth</i> to 30–60%. Add the <i>Vinyl Crackle</i> effect track for dust.</li>
+  <li>Try the <i>Mellotron</i> (tape strings) layered under a Rhodes using the <b>layer</b> control.</li>
+</ul>
+<h3>Jazz</h3>
+<ul>
+  <li>Start from <i>Jazz Ballad</i>, <i>Cool Jazz</i>, <i>Smooth Jazz</i> or <i>Big-Band Swing</i>. Swing is already set (30%+ for swing styles).</li>
+  <li>Use chord qualities in the palette: <i>maj7, min7, 7, 9, min9, 6</i> — and try inversions for smoother movement between chords.</li>
+  <li>Bass: <i>Upright Bass</i> walks in quarter notes; for a ballad lower the tempo to 55–65 BPM and shorten drums to brushes (the “Jazz Brush” kit).</li>
+</ul>
+<h3>Beat-first, hip-hop or dance</h3>
+<ol>
+  <li>Add a drums track, open <b>Steps</b>, or use the <i>beat…</i> menu (Boom bap, Trap, Four on the floor…).</li>
+  <li>Add a bass (808 style = <i>Sub Bass</i>), then chords in Pattern with the palette.</li>
+  <li>Automate the filter on the chords over eight bars for a build-up; add a <i>Riser</i> in the effects element before the drop.</li>
+</ol>
+
+<!-- ============================================================ 19 -->
+<h1>19 · How production works inside LOOM</h1>
+<p>This chapter explains what happens between “I clicked a note” and “I hear a song”, and how templates, poems and sharing are built. You do not need it to make music — it is here so the behaviour is predictable.</p>
+
+<h2>19.1 The big picture</h2>
+<div class="flow">
+  <div><b>Browser</b>studio, audio engine, generators, editors (plain JavaScript, no build step)</div><div class="arrow">⇄</div>
+  <div><b>FastAPI server</b>accounts, projects, history, audio, shares, comments, collaboration</div><div class="arrow">⇄</div>
+  <div><b>Database</b>SQLite (local) or PostgreSQL</div>
+</div>
+<ul>
+  <li><b>The sound is made in your browser</b> with the Web Audio API. The server never plays or generates audio; it stores and serves data (project JSON, uploaded audio, share pages).</li>
+  <li><b>A project is one JSON document</b>: tempo, swing, key, scale, bar count, sections, lyrics and poem text, master settings, and a list of tracks. Each track has its element, instrument, notes, audio clips, automation lanes, mix parameters, an optional layer, and mute/solo flags. Saving sends this document; version history stores up to 40 snapshots.</li>
+  <li><b>Audio files</b> are stored separately in the database and referenced by id from clips.</li>
+</ul>
+
+<h2>19.2 Making sound: the scheduler</h2>
+<p>Browsers are poor at precise timing from ordinary code, so LOOM uses the standard “look-ahead” technique. A timer wakes every 25 ms and schedules everything that falls in the next ~180 ms onto the audio clock, which is sample-accurate. For each track it schedules: notes (through the sample player or a synthesiser), audio clips (with fades, speed and time-stretch), and automation (as value ramps). Swing is applied when a note's time is computed. When a loop wraps, a second time anchor is added so scheduling continues seamlessly. On stop or seek, every track's output is disconnected, silencing already-scheduled sounds instantly, and fresh signal chains are rebuilt on demand.</p>
+<h2>19.3 Voices: samples first, synth as fallback</h2>
+<div class="flow">
+  <div><b>Note</b>pitch, start, length, velocity</div><div class="arrow">›</div>
+  <div><b>Sample available and loaded?</b></div><div class="arrow">›</div>
+  <div><b>Yes</b>nearest recording, pitch-shifted by playback rate; held sounds loop on a matched zero-crossing</div><div class="arrow">·</div>
+  <div><b>No</b>synthesiser for that instrument</div>
+</div>
+<p>Recordings are kept every fourth semitone, so no note is shifted by more than two semitones. Each instrument's loudness is normalised when it loads so recordings sit at the same level as synthesised sounds. Drum kits map each drum lane to a one-shot; lanes a kit does not have use the synthesised drum. The synthesisers are written in code: oscillator banks with filters and envelopes, FM for electric piano and bass, plucked-string physical modelling (Karplus-Strong) for guitars, formant filters for “voices”, noise for percussion and effects.</p>
+<h2>19.4 Effects and the mix</h2>
+<p>Every track owns a small chain of audio nodes (see chapter 10's diagram). The shared reverb is an algorithmic design (parallel damped feedback combs into all-pass diffusers) chosen because it costs a fraction of a convolution reverb; its damping filters are deliberately set so the loop can never grow. The delay time follows the tempo. The master bus has a compressor/limiter, a gain, and an analyser that drives the meters and the scope.</p>
+<h2>19.5 Offline rendering (WAV, MP3, stems, tests)</h2>
+<p>An export builds the same graph in an <i>offline</i> audio context and schedules the whole song at once, so it uses exactly the same voices, samples, effects and automation as live playback, then converts the result to WAV (16-bit) or MP3. Because the same code is used everywhere, what you hear is what you export.</p>
+
+<h2>19.6 How a genre template becomes a song</h2>
+<div class="flow">
+  <div><b>Recipe</b>key, tempo, beat, chords, sounds, styles</div><div class="arrow">›</div>
+  <div><b>Sections</b>intro, verse, chorus, outro</div><div class="arrow">›</div>
+  <div><b>Chords</b>progression fills each section</div><div class="arrow">›</div>
+  <div><b>Parts</b>drums, bass, mids, extra, vox, fx</div><div class="arrow">›</div>
+  <div><b>Project</b>tracks + markers</div>
+</div>
+<ol>
+  <li><b>Recipe</b> (a plain data entry in <code>data/genres.json</code>): tempo, swing, root note, scale, a drum beat id, a drum kit, the chord progression (scale degree, optional quality, length in beats), and for each part an instrument and a <i>style</i> name.</li>
+  <li><b>Structure</b>: a list of sections (name, bars, and which parts play — each part can be off, on, or “lite”).</li>
+  <li><b>Chords</b>: the progression is repeated to fill each section. Degrees are turned into real chords by stacking thirds within the scale, unless the recipe names a quality (maj7, min9…). A <i>voicing</i> function places the notes close together near a comfortable register.</li>
+  <li><b>Parts</b> are written by style functions: bass styles (root, root-fifth, offbeat, walking, 808, syncopated, slap, country boom-chick, shuffle, cumbia, amapiano and more), keyboard/guitar styles (block, sparse, comping, stabs, pad, arpeggios, folk/pop/ballad strums, fingerpicking, palm-mute chugs, power chords), voices (pads, chops), melodies (a hook motif that repeats, with a fresh answer phrase every fourth bar) and guitar riffs (pentatonic). Drums come from the beat table with fills and crash lead-ins.</li>
+  <li><b>Effects</b>: an impact on each new section and a riser before a big one; optional texture (crackle, wind) across the song.</li>
+  <li>All randomness comes from a <b>seeded generator</b>: same recipe + same variation number = identical notes.</li>
+</ol>
+<h2>19.7 How a poem becomes a timeline</h2>
+<ol>
+  <li><b>Parse</b>: stanzas are separated by blank lines; each line is counted in words and syllables (a simple English syllable estimator).</li>
+  <li><b>Pace</b>: at the chosen words-per-minute a line lasts <i>syllables ÷ syllables-per-second + a breath</i>. The mood's tempo gives the bar length, so each line is given the whole number of bars (minimum one) that covers that time.</li>
+  <li><b>Layout</b>: an intro of two bars, then each stanza as a section whose length is the sum of its lines, then an outro; the total is rounded up to an even number of bars (and capped at 64; lines that do not fit are reported).</li>
+  <li><b>Music bed</b>: the mood's recipe is run through the same generator, but with these sections, and with no vocal part; the bed sits lower in the mix so a voice has room.</li>
+  <li><b>Ducking</b> reads the voice clips' start and end positions and writes volume curves that ramp down one beat before and back up one beat after, merging clips that are close together.</li>
+</ol>
+<h2>19.8 Time-stretch (keep pitch)</h2>
+<p>LOOM uses WSOLA (waveform-similarity overlap-add): the audio is cut into overlapping 46 ms windows, spaced further apart or closer together than the original to change the length, and each window is placed at the nearby position that best lines up with the previous one so the waveform stays in phase. Pitch is preserved because the windows themselves are not resampled. A search on a down-sampled copy keeps it fast.</p>
+<h2>19.9 Sharing, comments and collaboration under the hood</h2>
+<ul>
+  <li>A share is a row holding a random 192-bit token, a <b>frozen copy of the project</b>, an optional walkthrough video and a transcript. The public page and its media endpoints only ever expose that copy and the audio clips it references — other files in your project return “not found”.</li>
+  <li>Comments and reactions need no account, so they are rate-limited per visitor and per page, length-limited, stripped of control characters and always displayed as plain text.</li>
+  <li>Every project save sends the revision it started from; the server rejects a mismatch with HTTP 409 and tells the browser who saved last, which produces the conflict dialog. A small status request every few seconds reports the latest revision and who is present.</li>
+</ul>
+
+<h2>19.10 The server API (summary)</h2>
+<table>
+  <tr><th>Area</th><th>Endpoints</th></tr>
+  <tr><td>Accounts</td><td><code>/api/auth/bootstrap, signup, login, logout, me</code> — Argon2id password hashes, server-side session tokens stored hashed, CSRF token on every change.</td></tr>
+  <tr><td>Projects</td><td><code>GET/POST /api/projects</code>, <code>GET/PUT/DELETE /api/projects/{id}</code>, <code>…/versions</code>, <code>…/versions/{n}</code>, <code>…/versions/{n}/restore</code>, <code>…/status</code>. State is capped at 1 MB per save.</td></tr>
+  <tr><td>Audio</td><td><code>…/audio</code> (list, upload — type checked from the file's first bytes — and delete) with per-file and per-project limits; walkthrough videos use the same endpoint with a video flag.</td></tr>
+  <tr><td>Collaboration</td><td><code>…/collaborators</code> (list, invite by email, remove).</td></tr>
+  <tr><td>Sharing</td><td><code>…/share</code> (publish, read, revoke), <code>…/share/comments/{id}</code>; public: <code>/api/public/{token}</code>, <code>/media/{id}</code> (Range supported for video), <code>/comments</code>, <code>/reactions</code>; page <code>/share/{token}</code>.</td></tr>
+  <tr><td>Data</td><td><code>/api/genres</code>, <code>/api/beats</code>, <code>/api/analyze</code> (note statistics), plus the original archive and style endpoints.</td></tr>
+</table>
+<h2>19.11 Files that matter</h2>
+<table>
+  <tr><th>Path</th><th>What it contains</th></tr>
+  <tr><td>backend/app.py, core.py</td><td>The FastAPI app and the database models.</td></tr>
+  <tr><td>frontend/studio.html</td><td>The studio page.</td></tr>
+  <tr><td>assets/studio.js</td><td>Project state, transport and scheduler, piano roll, inspector, import/export, project I/O.</td></tr>
+  <tr><td>assets/studio-audio.js</td><td>The audio engine: tracks, effects, all synthesised instruments, sample player, automation, time-stretch, offline render.</td></tr>
+  <tr><td>assets/studio-gen.js</td><td>Music logic: chords, voicings, beat expansion, genre generator, strums, riffs, poems, ducking, MIDI read/write, summaries and diffs. No browser dependencies, so it is unit-tested in Node.</td></tr>
+  <tr><td>assets/studio-views.js, -sounds.js, -share.js, -words.js</td><td>Chord palette, Steps, Arrange, Mixer, genre dialog; sound browser and help; share, walkthrough, collaboration, history; the Words tab.</td></tr>
+  <tr><td>assets/share.js</td><td>The public share page.</td></tr>
+  <tr><td>assets/samples/, vendor/</td><td>Recorded samples with credits; the MP3 encoder with its licence.</td></tr>
+  <tr><td>data/genres.json, beats.json</td><td>The styles and drum beats — edit these to add your own.</td></tr>
+  <tr><td>tests/, tools/</td><td>Automated tests; the script that builds the sample library.</td></tr>
+</table>
+<div class="tip"><b>Adding your own style</b>Open <code>data/genres.json</code>, copy an entry, change its <code>id</code>, <code>name</code>, tempo, key, beat, chords and sounds, and reload LOOM — it appears in the template dialog. Style names must be ones the generator knows (see <code>studio-gen.js</code>); a test checks that every sound you name exists.</div>
+
+<!-- ============================================================ 20 -->
+<h1>20 · Installing, running and deploying</h1>
+<h3>Run it on your computer</h3>
+<ol>
+  <li>Install Python 3.12 or newer.</li>
+  <li>In the project folder: <code>python -m venv .venv</code>, activate it (<code>.venv\Scripts\activate</code> on Windows, <code>source .venv/bin/activate</code> elsewhere), then <code>pip install -r requirements.txt</code>.</li>
+  <li><code>python -m uvicorn backend.app:app --host 127.0.0.1 --port 8000</code>, then open <code>http://127.0.0.1:8000</code>.</li>
+</ol>
+<p>The first run creates a local SQLite database (<code>loom.db</code>). To use PostgreSQL, copy <code>.env.example</code> to <code>.env</code> and set <code>DATABASE_URL</code>. Behind HTTPS, set <code>COOKIE_SECURE=1</code>. A <code>Dockerfile</code>, <code>docker-compose.yml</code> and Kubernetes/Terraform examples are included.</p>
+<h3>Browser support</h3>
+<table class="t2">
+  <tr><td>Playing, editing, sharing, public page</td><td>Current Chrome, Edge, Brave, Firefox, Safari.</td></tr>
+  <tr><td>Screen/walkthrough recording, speech transcript, MIDI keyboard</td><td>Chrome, Edge, Brave on a computer.</td></tr>
+  <tr><td>Microphone recording</td><td>Any browser with microphone permission (headphones recommended).</td></tr>
+</table>
+<h3>Running the tests</h3>
+<table>
+  <tr><th>Command</th><th>Checks</th></tr>
+  <tr><td>python -m pytest -q</td><td>The server: accounts, ownership, projects, audio limits, sharing, comments, collaboration, conflicts, data files, sample library, licence files. Uses a temporary database.</td></tr>
+  <tr><td>node tests/gen.test.js</td><td>The music logic across all 64 styles × 3 variations: valid notes, key, register, determinism, strums, riffs, poems, ducking, MIDI round-trip, chord detection.</td></tr>
+  <tr><td>python tests/e2e/studio_flow.py</td><td>Drives the real studio in a browser (needs Playwright + Chromium) — editing, templates, samples, automation, poems, time-stretch, MP3, labels, and renders every style through the engine.</td></tr>
+  <tr><td>python tests/e2e/studio_share.py</td><td>Share link, public page, walkthrough recording (with fake devices), comments, two-person collaboration, conflicts and history.</td></tr>
+  <tr><td>python tests/e2e/instrument_levels.py</td><td>Renders all 77 instruments; flags silence, NaN or clipping.</td></tr>
+  <tr><td>python scripts/smoke.py</td><td>A quick sign-up → step grid → save check.</td></tr>
+</table>
+
+<!-- ============================================================ 21 -->
+<h1>21 · Troubleshooting</h1>
+<table class="t2">
+  <tr><td><b>No sound.</b></td><td>Browsers start audio only after you click or press a key — press play once. Check the master gain and that the track is not muted or another track is soloed (lit <i>S</i>).</td></tr>
+  <tr><td><b>Sounds seem thin at first.</b></td><td>Recorded sounds load in the background; until a sound is ready the synth plays. The note beside “recorded samples” says how many are ready.</td></tr>
+  <tr><td><b>A track's note is invisible in the roll.</b></td><td>The roll shows only the selected track's range; scroll up/down, or select the right track. Drum tracks show drum rows.</td></tr>
+  <tr><td><b>Recording is late or has echo.</b></td><td>Use headphones; then drag the clip a little earlier in Arrange (or set its start precisely in the inspector).</td></tr>
+  <tr><td><b>Microphone / camera / screen do nothing.</b></td><td>Allow the permission in the browser's address-bar prompt; screen capture works in Chrome-family browsers only.</td></tr>
+  <tr><td><b>Share link says “turned off”.</b></td><td>The owner revoked it or deleted the project; publish again for a new link.</td></tr>
+  <tr><td><b>“Someone saved first”.</b></td><td>A collaborator saved after you opened the project. Choose “keep both” if unsure — it never loses anything.</td></tr>
+  <tr><td><b>Export is slow.</b></td><td>It renders the whole song; shorten the loop region, close other heavy tabs, or export stems one at a time.</td></tr>
+  <tr><td><b>“Save failed: Project state is larger than 1000 KB”.</b></td><td>Very large projects (tens of thousands of notes) hit the 1 MB limit; split the song into two projects.</td></tr>
+  <tr><td><b>Poem timing does not match my voice.</b></td><td>Rebuild with a different reading pace, or drag your clip / sections in Arrange.</td></tr>
+</table>
+
+<!-- ============================================================ 22 -->
+<h1>22 · Limits, licences and credits</h1>
+<h3>Limits</h3>
+<table class="t2">
+  <tr><td>Tracks per project</td><td>24</td></tr>
+  <tr><td>Song length</td><td>64 bars (4/4 only)</td></tr>
+  <tr><td>Undo</td><td>100 steps; version history: 40 saves</td></tr>
+  <tr><td>Project size</td><td>1 MB of project data per save</td></tr>
+  <tr><td>Audio</td><td>12 MB per file; 40 files / 60 MB per project</td></tr>
+  <tr><td>Walkthrough video</td><td>48 MB each, 4 minutes; 6 videos / 150 MB per project</td></tr>
+  <tr><td>Poem</td><td>400 lines; must fit in 64 bars</td></tr>
+  <tr><td>Comments</td><td>500 characters; 300 per page; limited per visitor</td></tr>
+</table>
+<h3>Not (yet) in LOOM</h3>
+<p>Time signatures other than 4/4 (waltz, 6/8); pitch correction of vocals; third-party plug-ins or SoundFont import; real-time keystroke-level co-editing; automation of drive, EQ and instrument settings; computer-voice reading of a poem into the mix.</p>
+<h3>Licences and credits</h3>
+<ul>
+  <li><b>LOOM's own code</b> is under the licence in the <code>LICENSE</code> file of the project.</li>
+  <li><b>Recorded melodic sounds</b> — FluidR3_GM soundfont by Frank Wen, Creative Commons Attribution 3.0, pre-rendered by the MIDI.js soundfont project.</li>
+  <li><b>Acoustic drums</b> — “Pearl Master Studio Pack 1” by <i>enoe</i>, Creative Commons Attribution 3.0.</li>
+  <li><b>LinnDrum LM-2 and Roland CR-78 one-shots</b> — labelled “Public Domain” by the <i>oramics/sampled</i> collection; LOOM could not independently verify their provenance. A TR-909 set in the same collection states no licence and is not included.</li>
+  <li><b>MP3 encoding</b> — the LAME encoder via <i>lamejs</i>, LGPL-3.0, shipped unmodified as its own file and loaded only when you export an MP3.</li>
+  <li>Full credits: <code>frontend/assets/samples/CREDITS.md</code> and <code>frontend/assets/vendor/README.md</code>. Keep them with any copy of LOOM you distribute.</li>
+</ul>
+<div class="note"><b>Your own recordings and words</b>Poems, vocals, projects and comments you create belong to you. Only publish what you have the right to share; a share link is readable by anyone who has it.</div>
+
+</body>
+</html>

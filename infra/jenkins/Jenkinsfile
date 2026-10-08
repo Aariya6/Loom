@@ -1,0 +1,8 @@
+pipeline {
+  agent any
+  stages {
+    stage('compile') { steps { sh 'python -m compileall backend' } }
+    stage('test') { steps { sh 'python -m pytest -q' } }
+    stage('package') { steps { sh 'python scripts/verify.py --json' } }
+  }
+}

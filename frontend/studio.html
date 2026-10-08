@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LOOM — Studio</title>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/studio.css">
+</head>
+<body class="lm">
+<header class="lm-top">
+  <a class="brand" href="/"><span class="brand-mark"></span>LOOM</a>
+  <details class="menu" id="projMenu">
+    <summary id="projLabel">Project</summary>
+    <div class="menu-pop">
+      <label class="note">switch project</label><select id="projectSelect"></select>
+      <button id="newBtn">New blank room</button>
+      <button id="templateBtn">New from genre template…</button>
+      <button id="importMidiBtn">Import MIDI file…</button>
+      <button id="historyBtn">Version history…</button>
+      <button id="delBtn" class="danger">Delete this project</button>
+    </div>
+  </details>
+  <div class="lm-group lm-transport">
+    <button id="rewindBtn" title="Return to start (Home)">⏮</button>
+    <button id="playBtn" class="primary" title="Play / pause (Space)">▶</button>
+    <button id="stopBtn" title="Stop and rewind (Enter)">■</button>
+    <button id="recBtn" title="Arm recording: while playing, notes from the computer keyboard or a MIDI keyboard are written into the track">● rec</button>
+    <button id="loopBtn" title="Loop the region between the loop markers (Shift-drag the ruler to set it)">⟲ loop</button>
+    <button id="metroBtn" title="Metronome">♩ click</button>
+    <span class="lm-time" id="timeRead">1:1:1</span>
+  </div>
+  <div class="lm-group lm-settings">
+    <label>BPM <input id="tempo" type="number" min="30" max="240" step="1" value="96"></label>
+    <label>swing <input id="swing" type="range" min="0" max="100" value="0"></label>
+    <label>key <select id="keyRoot"></select><select id="keyScale"></select></label>
+    <label>bars <select id="barsSel"></select></label>
+  </div>
+  <div class="lm-group lm-right-top">
+    <span id="presence" class="lm-presence" aria-live="polite"></span>
+    <button id="shareBtn" class="accent" title="Share a link, record a walkthrough, invite collaborators">⤴ share</button>
+    <button id="saveBtn" class="primary" title="Save (Ctrl+S)">save<i id="dirtyDot" hidden>•</i></button>
+    <details class="menu" id="exportMenu">
+      <summary>export ▾</summary>
+      <div class="menu-pop right">
+        <button id="midiBtn">MIDI file (all tracks)</button>
+        <button id="wavBtn">WAV mix (loop region or whole song)</button>
+        <button id="mp3Btn" title="192 kbps MP3 — encoded in your browser with LAME (LGPL)">MP3 mix (192 kbps)</button>
+        <button id="stemBtn">Stems (one WAV per track)</button>
+      </div>
+    </details>
+    <span id="userName" class="lm-user"></span>
+    <button id="logoutBtn">leave</button>
+  </div>
+</header>
+
+<div id="syncBar" class="lm-hint sync" hidden></div>
+<div id="recBar" class="recbar" hidden><i></i><span id="recClock">0:00</span><span id="recNote" class="note"></span><button type="button" id="recStop" class="danger">■ stop</button></div>
+
+<div class="lm-grid" id="grid">
+  <aside class="lm-left">
+    <input id="songName" class="lm-name" maxlength="160" aria-label="Project name" placeholder="Project name">
+    <div class="lm-lhead"><span class="panel-label">tracks</span><span class="note" id="addHint">add:</span></div>
+    <div class="lm-chips" id="elementBtns"></div>
+    <div id="trackList" class="lm-tracks"></div>
+    <details class="lm-master" open>
+      <summary class="panel-label">master</summary>
+      <div class="lm-slider"><label>gain <b id="mgV"></b></label><input id="mGain" type="range" min="0" max="1" step=".01"></div>
+      <div class="lm-slider"><label>reverb return <b id="mrV"></b></label><input id="mRev" type="range" min="0" max="1" step=".01"></div>
+      <label class="lm-check"><input id="mComp" type="checkbox"> compressor / limiter</label>
+      <label class="lm-check" title="Play recorded instruments (piano, guitars, strings, real drum kits…) instead of synthesised ones. Credits: assets/samples/CREDITS.md"><input id="mSamples" type="checkbox" checked> recorded samples <span class="note" id="sampleStatus"></span></label>
+      <canvas id="meter" height="12"></canvas>
+    </details>
+  </aside>
+
+  <main class="lm-center">
+    <nav class="lm-tabs" id="tabs">
+      <button data-view="roll" class="on" title="Piano roll: draw and edit notes">Pattern</button>
+      <button data-view="steps" title="Drum step sequencer: click to place hits">Steps</button>
+      <button data-view="arrange" title="Song timeline: sections, audio clips, overlap">Arrange</button>
+      <button data-view="mixer" title="Levels, pan, EQ and sends for every track">Mixer</button>
+      <button data-view="words" title="Poems and lyrics: build music for your words, read them over it, duck the music under your voice">Words</button>
+      <span class="grow"></span>
+      <button id="templateBtn2" class="accent" title="Start from a full genre template">✦ Genre templates</button>
+      <button id="varyBtn" title="New variation of the genre template (drums, bass, chords, melody)">⟳ Vary</button>
+      <button id="undoBtn" title="Undo (Ctrl+Z)">↶</button>
+      <button id="redoBtn" title="Redo (Ctrl+Shift+Z)">↷</button>
+      <button id="midiInBtn" title="Play and record with a MIDI keyboard">🎹 MIDI in</button>
+      <button id="labBtn" title="Show analysis charts and the live scope">analysis</button>
+      <button id="inspBtn" class="on" title="Show or hide the inspector">inspector</button>
+      <button id="helpBtn" title="Keyboard shortcuts and tips (?)">?</button>
+    </nav>
+    <div class="lm-hint" id="hint" hidden>
+      <b>Start here:</b> pick <b>✦ Genre templates</b> for a full 5-element song (drums · bass · mids · vox · effects), or add elements with the coloured chips on the left.
+      Draw notes in <b>Pattern</b>, click drum hits in <b>Steps</b>, drop vocals and loops into <b>Arrange</b>, shape levels in <b>Mixer</b>.
+      <button id="hintX" aria-label="Dismiss">✕</button>
+    </div>
+
+    <section class="view" id="view-roll">
+      <div class="lm-toolbar">
+        <div class="seg" id="tools">
+          <button data-tool="draw" class="on" title="Draw notes (1)">✎ draw</button>
+          <button data-tool="select" title="Select / move / resize (2)">⬚ select</button>
+          <button data-tool="erase" title="Erase (3)">⌫ erase</button>
+        </div>
+        <label>snap <select id="snapSel"></select></label>
+        <label>zoom <input id="zoom" type="range" min="12" max="160" value="48"></label>
+        <label><input id="followChk" type="checkbox" checked> follow</label>
+        <span class="sep"></span>
+        <button id="quantBtn" title="Snap selected (or all) notes to the grid">quantize</button>
+        <button id="humBtn" title="Loosen timing and velocity a little">humanize</button>
+        <button id="scaleBtn" title="Move out-of-key notes to the nearest key note">fit to key</button>
+        <button id="dblBtn" title="Repeat this track's pattern once more after its end">×2</button>
+        <button id="clearBtn" title="Delete every note on this track">clear</button>
+        <span class="sep"></span>
+        <select id="beatSel" title="Fill a drum track with a beat"><option value="">beat…</option></select>
+        <button id="chordToggle" class="on" title="Chord palette">chords</button>
+        <button id="delSelBtn" class="danger" title="Delete the selected notes (Delete key)" disabled>🗑 delete selected</button>
+      </div>
+      <div class="lm-chords" id="chordBar"></div>
+      <div class="lm-rollwrap" id="rollWrap"><div class="lm-spacer" id="rollSpacer"><canvas id="roll"></canvas></div></div>
+      <div class="lm-vellabel"><select id="laneSel" aria-label="Lane below the piano roll"></select><span id="laneHelp">drag the bars</span><button type="button" id="laneClear" hidden>clear lane</button></div>
+      <canvas id="vel" height="84"></canvas>
+    </section>
+
+    <section class="view" id="view-steps" hidden>
+      <div class="lm-toolbar" id="stepTools"></div>
+      <div class="lm-steps" id="stepGrid"></div>
+    </section>
+
+    <section class="view" id="view-arrange" hidden>
+      <div class="lm-toolbar" id="arrTools"></div>
+      <div class="lm-rollwrap" id="arrWrap"><div class="lm-spacer" id="arrSpacer"><canvas id="arr"></canvas></div></div>
+    </section>
+
+    <section class="view" id="view-mixer" hidden>
+      <div class="lm-mixer" id="mixerStrips"></div>
+    </section>
+
+    <section class="view" id="view-words" hidden>
+      <div class="words">
+        <div class="words-col">
+          <h3>Your words</h3>
+          <textarea id="poemText" rows="12" spellcheck="true" placeholder="Paste or write a poem. Leave a blank line between stanzas.&#10;&#10;The evening folds its hands&#10;and the river learns to sleep…" aria-label="Poem text"></textarea>
+          <div class="note" id="poemStats">0 lines</div>
+          <div class="words-opts">
+            <label>mood <select id="poemMood"></select></label>
+            <label>reading pace <select id="poemPace"><option value="80">slow &amp; dramatic</option><option value="105" selected>natural</option><option value="135">brisk</option></select></label>
+            <label>variation <input id="poemSeed" type="number" min="1" max="99999" value="1"> <button type="button" id="poemDice" title="Another take on the same mood">🎲</button></label>
+            <label>into <select id="poemMode"><option value="new">a new project</option><option value="replace">replace this project's music</option></select></label>
+          </div>
+          <div class="btns"><button type="button" id="poemBuild" class="primary">♪ Build music for this poem</button></div>
+          <p class="note">Each stanza becomes a section, each line gets as many bars as a natural reading needs, and the music bed (no vocals — the voice is yours) is fitted to that length. Change the mood or variation and build again any time.</p>
+        </div>
+        <div class="words-col">
+          <h3>On the timeline</h3>
+          <div class="lyric-now" id="lyricNow" aria-live="polite">—</div>
+          <div class="btns">
+            <button type="button" id="poemRec" title="Starts the music and records your voice from the first line">● Record my reading</button>
+            <button type="button" id="poemImp">⤒ Import my reading…</button>
+            <label>duck music to <select id="duckDepth"><option value=".6">60%</option><option value=".45" selected>45%</option><option value=".3">30%</option></select></label>
+            <button type="button" id="duckBtn" title="Lowers every music track while your voice clips are playing, with smooth ramps">Duck music under my voice</button>
+            <button type="button" id="unduckBtn">Remove ducking</button>
+          </div>
+          <div class="btns"><button type="button" id="lrcBtn">Export lyrics (.lrc)</button><button type="button" id="srtBtn">Export subtitles (.srt)</button></div>
+          <div id="lyricList" class="lyric-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="lm-lab" id="lab" hidden>
+      <div class="mini-chart"><span class="chart-title">NOTES PER BAR</span><canvas id="densityChart" height="80"></canvas></div>
+      <div class="mini-chart"><span class="chart-title">PITCH CLASS</span><canvas id="pitchChart" height="80"></canvas></div>
+      <div class="mini-chart"><span class="chart-title">LIVE SCOPE</span><canvas id="scope" height="80"></canvas></div>
+    </div>
+    <footer class="lm-status" id="stats">—</footer>
+  </main>
+
+  <aside class="lm-right" id="inspector"></aside>
+</div>
+
+<dialog id="tplDlg">
+  <form method="dialog" class="tpl">
+    <header><h3>Start from a genre</h3><button value="close" aria-label="Close">✕</button></header>
+    <p class="note">Each template writes a 16-bar song with intro, verse, chorus and outro across all five elements — drums, bass, mids, vox and effects — in the genre's key, tempo and feel. Everything stays fully editable.</p>
+    <div class="tpl-opts">
+      <div id="tplFilters"></div>
+      <label class="note">into: <select id="tplMode"><option value="new">a new project</option><option value="replace">replace this project's tracks</option></select></label>
+      <label class="note">variation <input id="tplSeed" type="number" min="1" max="99999" value="1"> <button type="button" id="tplDice">🎲</button></label>
+    </div>
+    <div class="tpl-grid" id="tplGrid"></div>
+  </form>
+</dialog>
+<dialog id="soundDlg">
+  <form method="dialog" class="snd">
+    <header><h3>Sound browser</h3><button value="close" aria-label="Close">✕</button></header>
+    <div class="snd-top"><input type="search" id="sndSearch" placeholder="Search sounds — guitar, bass, kick, choir…" aria-label="Search sounds"><span class="note" id="sndFor"></span></div>
+    <div class="snd-cats" id="sndCats"></div>
+    <div class="snd-grid" id="sndGrid"></div>
+    <footer><span class="note" id="sndPick">Click a sound to hear it, double-click (or press “Use this sound”) to put it on the track.</span><button type="button" id="sndUse" class="primary" disabled>Use this sound</button></footer>
+  </form>
+</dialog>
+<dialog id="helpDlg">
+  <form method="dialog" class="help">
+    <header><h3>Shortcuts &amp; tips</h3><button value="close" aria-label="Close">✕</button></header>
+    <div class="help-grid" id="helpBody"></div>
+  </form>
+</dialog>
+<dialog id="shareDlg">
+  <form method="dialog" class="shr">
+    <header><h3>Share &amp; collaborate</h3><button value="close" aria-label="Close">✕</button></header>
+    <nav class="shr-tabs" id="shrTabs"></nav>
+    <div id="shrBody"></div>
+  </form>
+</dialog>
+<dialog id="conflictDlg">
+  <form method="dialog" class="shr" id="conflictForm"></form>
+</dialog>
+<dialog id="historyDlg"><form method="dialog"><h3>Version history</h3><div id="historyList"></div><menu><button>close</button></menu></form></dialog>
+<input type="file" id="midiFile" accept=".mid,.midi,audio/midi" hidden>
+<input type="file" id="audioFile" accept="audio/*,.wav,.mp3,.ogg,.flac,.m4a,.webm" multiple hidden>
+<script src="/assets/site.js"></script>
+<script src="/assets/studio-audio.js"></script>
+<script src="/assets/studio-gen.js"></script>
+<script src="/assets/studio.js"></script>
+<script src="/assets/studio-views.js"></script>
+<script src="/assets/studio-sounds.js"></script>
+<script src="/assets/studio-share.js"></script>
+<script src="/assets/studio-words.js"></script>
+</body>
+</html>

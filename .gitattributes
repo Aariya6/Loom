@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.png binary
+*.pdf binary
+*.mp3 binary
+*.wav binary
+*.ogg binary
+frontend/assets/vendor/lame.min.js -text

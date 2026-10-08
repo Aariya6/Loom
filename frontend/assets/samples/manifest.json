@@ -1,0 +1,726 @@
+{
+ "version": 1,
+ "instruments": {
+  "Grand Piano": {
+   "dir": "melodic/acoustic_grand_piano",
+   "notes": [
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88,
+    92,
+    96,
+    100
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Rhodes": {
+   "dir": "melodic/electric_piano_1",
+   "notes": [
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88,
+    92,
+    96
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Clav": {
+   "dir": "melodic/clavinet",
+   "notes": [
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Acoustic Guitar": {
+   "dir": "melodic/acoustic_guitar_steel",
+   "notes": [
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Nylon Guitar": {
+   "dir": "melodic/acoustic_guitar_nylon",
+   "notes": [
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Electric Clean": {
+   "dir": "melodic/electric_guitar_clean",
+   "notes": [
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Muted Guitar": {
+   "dir": "melodic/electric_guitar_muted",
+   "notes": [
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Overdrive Guitar": {
+   "dir": "melodic/overdriven_guitar",
+   "notes": [
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Distortion Guitar": {
+   "dir": "melodic/distortion_guitar",
+   "notes": [
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Banjo": {
+   "dir": "melodic/banjo",
+   "notes": [
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Harp": {
+   "dir": "melodic/orchestral_harp",
+   "notes": [
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88,
+    92,
+    96
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Pizzicato": {
+   "dir": "melodic/pizzicato_strings",
+   "notes": [
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Electric Bass": {
+   "dir": "melodic/electric_bass_finger",
+   "notes": [
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Upright Bass": {
+   "dir": "melodic/acoustic_bass",
+   "notes": [
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Slap Bass": {
+   "dir": "melodic/slap_bass_1",
+   "notes": [
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Marimba": {
+   "dir": "melodic/marimba",
+   "notes": [
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88,
+    92,
+    96
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Vibraphone": {
+   "dir": "melodic/vibraphone",
+   "notes": [
+    53,
+    57,
+    61,
+    65,
+    69,
+    73,
+    77,
+    81,
+    85,
+    89,
+    93
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Music Box": {
+   "dir": "melodic/music_box",
+   "notes": [
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88,
+    92,
+    96,
+    100
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Kalimba": {
+   "dir": "melodic/kalimba",
+   "notes": [
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88,
+    92,
+    96
+   ],
+   "kind": "decay",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Violin": {
+   "dir": "melodic/violin",
+   "notes": [
+    55,
+    59,
+    63,
+    67,
+    71,
+    75,
+    79,
+    83,
+    87,
+    91,
+    95
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Cello": {
+   "dir": "melodic/cello",
+   "notes": [
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Strings": {
+   "dir": "melodic/string_ensemble_1",
+   "notes": [
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Trumpet": {
+   "dir": "melodic/trumpet",
+   "notes": [
+    55,
+    59,
+    63,
+    67,
+    71,
+    75,
+    79,
+    83,
+    87
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Sax": {
+   "dir": "melodic/alto_sax",
+   "notes": [
+    49,
+    53,
+    57,
+    61,
+    65,
+    69,
+    73,
+    77,
+    81,
+    85
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Flute": {
+   "dir": "melodic/flute",
+   "notes": [
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88,
+    92,
+    96
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Brass Section": {
+   "dir": "melodic/brass_section",
+   "notes": [
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Accordion": {
+   "dir": "melodic/accordion",
+   "notes": [
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Organ": {
+   "dir": "melodic/drawbar_organ",
+   "notes": [
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88,
+    92,
+    96
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Choir Ahh": {
+   "dir": "melodic/choir_aahs",
+   "notes": [
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Choir Ooh": {
+   "dir": "melodic/voice_oohs",
+   "notes": [
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  },
+  "Warm Pad": {
+   "dir": "melodic/pad_2_warm",
+   "notes": [
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88
+   ],
+   "kind": "sustain",
+   "ext": "mp3",
+   "source": "FluidR3_GM"
+  }
+ },
+ "kits": {
+  "Acoustic Kit": {
+   "dir": "drums/pearl",
+   "lanes": {
+    "36": "kick-01.wav",
+    "38": "snare-01.wav",
+    "42": "hihat-closed.wav",
+    "46": "hihat-open.wav",
+    "49": "crash-01.wav",
+    "51": "ride-01.wav",
+    "45": "tom-01.wav",
+    "41": "tom-03.wav",
+    "40": "snare-02.wav",
+    "57": "crash-02.wav",
+    "59": "ride-02.wav",
+    "47": "tom-02.wav"
+   },
+   "source": "Pearl Master Studio by enoe (CC BY 3.0)"
+  },
+  "Linn Kit": {
+   "dir": "drums/linn",
+   "lanes": {
+    "36": "kick.wav",
+    "38": "snare-m.wav",
+    "37": "stick-m.wav",
+    "39": "clap.wav",
+    "42": "hihat-closed.wav",
+    "46": "hihat-open.wav",
+    "49": "crash.wav",
+    "51": "ride.wav",
+    "45": "tom-h.wav",
+    "41": "tom-l.wav",
+    "54": "tamb.wav",
+    "56": "cowb.wav",
+    "62": "conga-h.wav",
+    "64": "conga-l.wav",
+    "70": "cabasa.wav",
+    "75": "stick-h.wav"
+   },
+   "source": "LinnDrum LM-2"
+  },
+  "CR-78 Kit": {
+   "dir": "drums/cr78",
+   "lanes": {
+    "36": "kick.wav",
+    "38": "snare.wav",
+    "37": "rim.wav",
+    "42": "hihat.wav",
+    "46": "hihat-metal.wav",
+    "49": "cymbal.wav",
+    "56": "cowbell.wav",
+    "64": "conga-l.wav",
+    "62": "bongo-h.wav",
+    "54": "tamb-short.wav",
+    "70": "guiro-short.wav"
+   },
+   "source": "Roland CR-78"
+  }
+ },
+ "credits": [
+  {
+   "name": "FluidR3_GM soundfont",
+   "author": "Frank Wen",
+   "license": "Creative Commons Attribution 3.0",
+   "url": "https://creativecommons.org/licenses/by/3.0/us/",
+   "via": "pre-rendered by https://github.com/gleitz/midi-js-soundfonts",
+   "used_for": "all melodic sampled instruments"
+  },
+  {
+   "name": "Pearl Master Studio Pack 1",
+   "author": "enoe",
+   "license": "Creative Commons Attribution 3.0",
+   "url": "http://audio.ibeat.org/?ccm=/files/enoe/286",
+   "via": "https://github.com/oramics/sampled",
+   "used_for": "Acoustic Kit"
+  },
+  {
+   "name": "LinnDrum LM-2 samples",
+   "author": "Linn Electronics (samples circulated by the drum-machine community)",
+   "license": "labelled \"Public Domain\" by oramics/sampled",
+   "url": "http://machines.hyperreal.org/manufacturers/Linn/LinnDrum/",
+   "via": "https://github.com/oramics/sampled",
+   "used_for": "Linn Kit"
+  },
+  {
+   "name": "Roland CR-78 samples",
+   "author": "Roland (samples from boxedear.com/free)",
+   "license": "labelled \"Public Domain\" by oramics/sampled",
+   "url": "http://www.boxedear.com/free.html",
+   "via": "https://github.com/oramics/sampled",
+   "used_for": "CR-78 Kit"
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+[
+ {"name":"House","tempo":124,"meter":"4/4","layers":["kick","clap/snare","closed hat","bass","chord stab"],"description":"Four-to-the-floor pulse, small rhythmic variations, repeated harmonic cells and timbral evolution."},
+ {"name":"Funk","tempo":104,"meter":"4/4","layers":["kick","snare","ghost notes","bass","guitar/keys"],"description":"Syncopation and interlocking parts. The bass and drums share the conversation rather than merely keeping time."},
+ {"name":"Ambient","tempo":72,"meter":"4/4","layers":["drone","soft pulse","pad","slow motif","air/noise"],"description":"Long envelopes, sparse events, sustained harmonic fields and changes that arrive gradually."},
+ {"name":"Folk","tempo":96,"meter":"3/4 or 4/4","layers":["pulse","bass/root","melody","answer","ornament"],"description":"Memorable melodic phrases, direct harmonic grounding and variation through performance detail."}
+]

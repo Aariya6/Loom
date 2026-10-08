@@ -1,0 +1,8 @@
+{
+  "generated_at": "2026-10-01",
+  "policy": "Only source-linked metadata is bundled. Musical audio is synthesized in-browser; no copyrighted commercial recordings are shipped.",
+  "sources": [
+    {"name": "Mutopia Project", "url": "https://www.mutopiaproject.org/", "use": "public-domain/openly licensed score and MIDI metadata snapshot", "refresh": "scripts/procure_mutopia.py"},
+    {"name": "Mutopia listing", "url": "https://www.mutopiaproject.org/cgibin/make-table.cgi", "use": "source inspection and metadata provenance"}
+  ]
+}

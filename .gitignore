@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+loom.db
+.pytest_cache/
+playwright-report/
+test-results/
+*.db
+*.sqlite
+*.sqlite3

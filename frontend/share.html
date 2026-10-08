@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>LOOM — Shared song</title>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/share.css">
+</head>
+<body class="sh">
+<header class="sh-top">
+  <a class="brand" href="/"><span class="brand-mark"></span>LOOM</a>
+  <div class="sh-title"><h1 id="shTitle">Loading…</h1><span id="shBy" class="note"></span></div>
+  <a class="sh-cta" href="/auth">Make your own in LOOM →</a>
+</header>
+<main class="sh-grid" id="shMain" hidden>
+  <section class="sh-left">
+    <div class="sh-card" id="videoCard" hidden>
+      <video id="vid" controls playsinline preload="metadata"></video>
+      <div class="note">Walkthrough — comments and reactions attach to the exact second you are on.</div>
+    </div>
+    <div class="sh-card" id="songCard">
+      <div class="sh-player">
+        <button id="songPlay" class="primary" disabled aria-label="Play the song">▶</button>
+        <div class="sh-seek"><div class="sh-marks" id="songMarks"></div><input id="songSeek" type="range" min="0" max="1000" value="0" disabled aria-label="Song position"></div>
+        <span id="songTime" class="sh-time">0:00</span>
+      </div>
+      <div class="note" id="songStatus">Preparing the song…</div>
+      <div class="sh-sections" id="songSections"></div>
+      <div class="sh-lyrics" id="lyrics" hidden></div>
+    </div>
+    <div class="sh-react" id="reactBar" aria-label="React"></div>
+  </section>
+  <aside class="sh-right">
+    <nav class="sh-tabs" id="shTabs"><button data-t="comments" class="on">Comments <b id="cCount">0</b></button><button data-t="transcript" id="tTab" hidden>Transcript</button><button data-t="summary">Summary</button></nav>
+    <div id="pane-comments" class="sh-pane">
+      <form id="cForm" class="sh-form">
+        <div class="note" id="cAt">Commenting on the song at 0:00</div>
+        <input id="cName" maxlength="40" placeholder="Your name (optional)" autocomplete="nickname" aria-label="Your name">
+        <textarea id="cBody" maxlength="500" rows="2" placeholder="Say what you think — it is pinned to this moment" aria-label="Comment"></textarea>
+        <button class="primary" id="cSend">Comment</button>
+      </form>
+      <div id="cOff" class="note" hidden>The owner turned comments off for this page.</div>
+      <div id="cList"></div>
+    </div>
+    <div id="pane-transcript" class="sh-pane" hidden>
+      <input id="tSearch" type="search" placeholder="Search the transcript…" aria-label="Search transcript">
+      <div id="tList"></div>
+    </div>
+    <div id="pane-summary" class="sh-pane" hidden><div id="sumBody"></div></div>
+  </aside>
+</main>
+<p id="shError" class="sh-error" hidden></p>
+<script src="/assets/studio-audio.js"></script>
+<script src="/assets/studio-gen.js"></script>
+<script src="/assets/share.js"></script>
+</body>
+</html>
