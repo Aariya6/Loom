@@ -4,7 +4,7 @@
 
 LOOM is a deliberately human music-making environment. You write the notes, shape the rhythm, change the instrument, move layers around, listen, inspect the structure, and keep the project as editable data. There is no hosted generative music API in the runtime.
 
-> **📖 New here? Read the [User & Production Guide (PDF, 34 pages)](docs/LOOM-Guide.pdf)** — what every control does, how to make country / poetry / retro / jazz / soothing-acoustic music step by step, and how the audio engine, generators, sharing and collaboration work underneath. (Source: [docs/guide/LOOM-Guide.html](docs/guide/LOOM-Guide.html); rebuild with `python tools/build_guide.py`.)
+> **📖 New here? Read the [User & Production Guide (PDF, 64 pages)](docs/LOOM-Guide.pdf)** — what every control does, how to make country / poetry / retro / jazz / soothing-acoustic music step by step, and how the audio engine, generators, sharing and collaboration work underneath. (Source: [docs/guide/LOOM-Guide.html](docs/guide/LOOM-Guide.html); rebuild with `python tools/build_guide.py`.)
 
 ## The experience
 
